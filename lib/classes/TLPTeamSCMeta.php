@@ -65,7 +65,6 @@ if (!class_exists('TLPTeamSCMeta')):
                 return;
             }
             wp_dequeue_script('autosave');
-            wp_enqueue_media();
 
             // scripts
             wp_enqueue_script(array(
