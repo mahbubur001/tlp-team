@@ -10,7 +10,7 @@ class TPLsettings {
 		add_action( 'wp_ajax_tlpTeamSettings', array( $this, 'tlpTeamSettings' ) );
 		add_action( 'admin_menu', array( $this, 'tlp_menu_register' ) );
 		add_filter( 'plugin_action_links_' . TLP_TEAM_PLUGIN_ACTIVE_FILE_NAME, array( $this, 'tlp_team_marketing' ) );
-		add_action( 'admin_notices', array( $this, 'deprecated_admin_notice__success' ) );
+		add_action( 'admin_notices', array( $this, 'deprecated_admin_notice' ) );
 	}
 
 	function tlp_team_marketing( $links ) {
@@ -21,7 +21,7 @@ class TPLsettings {
 		return $links;
 	}
 
-	function deprecated_admin_notice__success() {
+	function deprecated_admin_notice() {
 		$screen = get_current_screen();
 		if ( isset( $screen->post_type ) && ( $screen->post_type == TLPTeam()->post_type || $screen->post_type == TLPTeam()->getScPostType() ) ) {
 			$class   = 'notice notice-error is-dismissible';
