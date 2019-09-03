@@ -99,6 +99,14 @@
         }
     }
 
+    function paginationEffect() {
+        if ($("#ttp_pagination").is(':checked')) {
+            $(".tlp-field-holder.tlp-pagination-item").show();
+        } else {
+            $(".tlp-field-holder.tlp-pagination-item").not('.pagination').hide();
+        }
+    }
+
     function useEffect() {
         imageSizeEffect();
         featureImageEffect();
@@ -109,14 +117,18 @@
                 isIsotope = layout.match(/^isotope/i);
             if (isGrid) {
                 $(".tlp-field-holder.tlp-carousel-item").hide();
-                $(".tlp-field-holder.tlp-pagination-item").show();
+                $(".tlp-field-holder.tlp-pagination-item.pagination").show();
             } else if (isCarousel) {
                 $(".tlp-field-holder.tlp-pagination-item").hide();
                 $(".tlp-field-holder.tlp-carousel-item").show();
             } else if (isIsotope) {
                 $(".tlp-field-holder.tlp-carousel-item").hide();
-                $(".tlp-field-holder.tlp-pagination-item").hide();
+                $(".tlp-field-holder.tlp-pagination-item.pagination").show();
             }
+        }
+
+        if ($(".tlp-field-holder.tlp-pagination-item.pagination").is(':visible')) {
+            paginationEffect();
         }
     }
 
@@ -130,6 +142,9 @@
     });
     $("#tlp_image_size").on('change', function () {
         imageSizeEffect();
+    });
+    $("#ttp_pagination").on('change', function () {
+        paginationEffect();
     });
 
     $(".rt-tab-nav li").on('click', 'a', function (e) {
@@ -177,11 +192,11 @@
             data: data,
             beforeSend: function () {
                 $('#tlp-team-preview-container').addClass('loading');
-                $('.tlp-team-response .spinner').addClass('is-active');
+                $('#tlp-team-response .spinner').addClass('is-active');
             },
             success: function (data) {
                 $('#tlp-team-preview-container').removeClass('loading');
-                $('.tlp-team-response .spinner').removeClass('is-active');
+                $('#tlp-team-response .spinner').removeClass('is-active');
                 handle(data);
             }
         });

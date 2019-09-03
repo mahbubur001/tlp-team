@@ -65,7 +65,8 @@
         if ($(window).width() > 768) {
             $(document).imagesLoaded(function () {
                 $(".tlp-team").each(function () {
-                    if (parseInt($(this).attr("data-desktop"), 10) !== 12) {
+                    var desktopCol = $(this).attr("data-desktop") || $(this).attr("data-desktop-col");
+                    if (parseInt(desktopCol, 10) !== 12) {
                         var tlpMaxH = 0;
                         $(this).children('div').children(".tlp-equal-height").height("auto");
                         $(this).children('div').children(".tlp-equal-height").each(function () {

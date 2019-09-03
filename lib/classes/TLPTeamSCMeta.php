@@ -70,7 +70,7 @@ if (!class_exists('TLPTeamSCMeta')):
             // scripts
             wp_enqueue_script(array(
                 'jquery',
-                'wp-color-picker',
+                'wp-color-picker-alpha',
                 'tlp-isotope',
                 'tlp-owl-carousel',
                 TLPTeam()->getSelect2JsId(),
@@ -117,7 +117,7 @@ if (!class_exists('TLPTeamSCMeta')):
 
         function tlp_team_sc_preview_selection() {
             $html = null;
-            $html .= "<div class='tlp-team-response'><span class='spinner'></span></div>";
+            $html .= "<div id='tlp-team-response'><span class='spinner'></span></div>";
             $html .= "<div id='tlp-team-preview-container'></div>";
             echo $html;
         }

@@ -145,6 +145,12 @@ if (!class_exists('TLPteamPostTypeRegistrations')):
                     'deps'   => array('jquery'),
                     'footer' => true
                 );
+
+                $scripts['wp-color-picker-alpha'] = array(
+                    'src'    => TLPTeam()->assetsUrl . "js/wp-color-picker-alpha.js",
+                    'deps'   => array('wp-color-picker'),
+                    'footer' => true
+                );
                 $styles['tlp-select2'] = TLPTeam()->assetsUrl . 'vendor/select2/select2.min.css';
                 $styles['tlp-team-admin'] = TLPTeam()->assetsUrl . 'css/settings.css';
             }

@@ -4,7 +4,7 @@ get_header( );
 while ( have_posts() ) : the_post();
 	global $post;
 ?>
-<div class="tlp-team-container-fluid tlp-team tlp-single-container">
+<div class="tlp-team-container tlp-team tlp-single-container">
 	<div class="tlp-row">
 		<article id="post-<?php the_ID(); ?>" <?php post_class('tlp-member-article'); ?>>
 			<div class="tlp-col-lg-5 tlp-col-md-5 tlp-col-sm-6 tlp-col-xs-12 tlp-member-feature-img">

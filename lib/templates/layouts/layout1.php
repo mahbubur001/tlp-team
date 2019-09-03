@@ -30,11 +30,11 @@ if ($sLink) {
 ?>
 <div class="team-member tlp-equal-height <?php echo esc_attr($grid) ?>">
     <div class="single-team-area">
+	    <?php echo $image; ?>
         <div class="tlp-content">
-            <?php echo $image; ?>
             <?php echo $inner_title; ?>
+            <?php echo $designation_html ?>
         </div>
-        <?php echo $designation_html ?>
         <?php echo $short_bio_html ?>
         <?php echo $sLink_html; ?>
     </div>
