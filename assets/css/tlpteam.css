@@ -37,7 +37,7 @@
     display: table;
 }
 
-.clearfix:after, .tlp-container:after, .tlp-team-container-:after, .tlp-row:after {
+.clearfix:after, .tlp-container:after, .tlp-team-container:after, .tlp-row:after {
     clear: both;
 }
 
