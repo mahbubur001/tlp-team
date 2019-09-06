@@ -108,7 +108,6 @@
     }
 
     function useEffect() {
-        imageSizeEffect();
         featureImageEffect();
         var layout = $("#layout").val();
         if (layout) {
@@ -130,6 +129,7 @@
         if ($(".tlp-field-holder.tlp-pagination-item.pagination").is(':visible')) {
             paginationEffect();
         }
+        imageSizeEffect();
     }
 
     renderTlpTeamPreview();
@@ -140,7 +140,7 @@
     $("#ttp_image").on('change', function () {
         featureImageEffect();
     });
-    $("#tlp_image_size").on('change', function () {
+    $("#ttp_image_size").on('change', function () {
         imageSizeEffect();
     });
     $("#ttp_pagination").on('change', function () {
