@@ -408,6 +408,13 @@
     -moz-border-radius: 50%;
     border-radius: 50%;
 }
+.tlp-team .layout3 .tpl-social a,
+.tlp-team .layout3 .tpl-social a:hover{
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+
+}
 
 /************************ End Layout 3 ********************/
 
@@ -429,7 +436,11 @@
     height: 36px;
     border-radius: 50%;
 }
-
+.tlp-team .layout4 h3{
+    margin-top: 15px;
+    padding: 0;
+    font-size: 22px;
+}
 /************************ End Layout 4 ********************/
 
 /******************** Carousel ***********************/
