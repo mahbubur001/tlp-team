@@ -44,9 +44,9 @@ if ( ! class_exists( 'TPLTeamShortCode' ) ):
 						/* LIMIT */
 						$query_args['posts_per_page'] = $limit = ( ( empty( $scMeta['ttp_limit'] ) || $scMeta['ttp_limit'] === '-1' ) ? 10000000 : absint( $scMeta['ttp_limit'] ) );
 						$pagination                   = ! empty( $scMeta['ttp_pagination'] ) ? true : false;
-						if($pagination) {
+						if ( $pagination ) {
 							$query_args['posts_per_page'] = $posts_per_page = isset( $scMeta['ttp_posts_per_page'] ) ? absint( $scMeta['ttp_posts_per_page'] ) : $limit;
-						}else{
+						} else {
 							$query_args['posts_per_page'] = $posts_per_page = $limit;
 						}
 
@@ -71,9 +71,9 @@ if ( ! class_exists( 'TPLTeamShortCode' ) ):
 						$query_args['posts_per_page'] = $limit = ( ( empty( $scMeta['ttp_limit'][0] ) || $scMeta['ttp_limit'][0] === '-1' ) ? 10000000 : absint( $scMeta['ttp_limit'][0] ) );
 						$pagination                   = ! empty( $scMeta['ttp_pagination'][0] ) ? true : false;
 
-						if($pagination) {
+						if ( $pagination ) {
 							$query_args['posts_per_page'] = $posts_per_page = isset( $scMeta['ttp_posts_per_page'][0] ) ? absint( $scMeta['ttp_posts_per_page'][0] ) : $limit;
-						}else{
+						} else {
 							$query_args['posts_per_page'] = $posts_per_page = $limit;
 						}
 
@@ -548,6 +548,10 @@ if ( ! class_exists( 'TPLTeamShortCode' ) ):
 				if ( $primaryColor ) {
 					$css .= "#{$layoutID} .tlp-content, 
 						#{$layoutID} .layout1 .tlp-content{background:{$primaryColor };}";
+					$css .= "#{$layoutID} .short-desc,
+							#{$layoutID} .tlp-team-isotope .tlp-content, 
+							#{$layoutID} .tpl-social a, 
+							#{$layoutID} .tpl-social li a.fa{background: $primaryColor;}";
 				}
 
 				/* button */
