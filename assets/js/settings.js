@@ -202,48 +202,54 @@
         });
     }
 
-})(jQuery);
 
-function tlpTeamSettings(e) {
-
-    jQuery('#response').hide();
-    arg = jQuery(e).serialize();
-    bindElement = jQuery('#tlpSaveButton');
-    AjaxCall(bindElement, 'tlpTeamSettings', arg, function (data) {
-        console.log(data);
-        if (data.error) {
-            jQuery('#response').removeClass('error');
-            jQuery('#response').show('slow').text(data.msg);
-        } else {
-            jQuery('#response').addClass('error');
-            jQuery('#response').show('slow').text(data.msg);
+    function AjaxCall(element, action, arg, handle) {
+        var data, n;
+        if (action) data = "action=" + action;
+        if (arg) data = arg + "&action=" + action;
+        if (arg && !action) data = arg;
+        n = data.search("tlp_nonce");
+        if (n < 0) {
+            data = data + "&tlp_nonce=" + tpl_nonce;
         }
-    });
 
-
-}
-
-function AjaxCall(element, action, arg, handle) {
-    if (action) data = "action=" + action;
-    if (arg) data = arg + "&action=" + action;
-    if (arg && !action) data = arg;
-    data = data;
-
-    var n = data.search("tlp_nonce");
-    if (n < 0) {
-        data = data + "&tlp_nonce=" + tpl_nonce;
+        $.ajax({
+            type: "post",
+            url: ajaxurl,
+            data: data,
+            beforeSend: function () {
+                $("<span class='tlp_loading'></span>").insertAfter(element);
+            },
+            success: function (data) {
+                $(".tlp_loading").remove();
+                handle(data);
+            }
+        });
     }
 
-    jQuery.ajax({
-        type: "post",
-        url: ajaxurl,
-        data: data,
-        beforeSend: function () {
-            jQuery("<span class='tlp_loading'></span>").insertAfter(element);
-        },
-        success: function (data) {
-            jQuery(".tlp_loading").remove();
-            handle(data);
-        }
-    });
-}
+    $("#tlp-team-settings").on('submit', function (e) {
+        e.preventDefault();
+
+        var response = $('#response').hide(),
+            arg = $(e).serialize(),
+            bindElement = $('#tlpSaveButton');
+        AjaxCall(bindElement, 'tlpTeamSettings', arg, function (data) {
+            console.log(data);
+            if (data.error) {
+                response
+                    .removeClass('error')
+                    .show('slow')
+                    .text(data.msg);
+            } else {
+                response
+                    .addClass('error')
+                    .show('slow')
+                    .text(data.msg);
+            }
+        });
+
+        return false;
+    })
+
+})(jQuery);
+

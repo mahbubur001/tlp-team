@@ -7,7 +7,7 @@
     <h2><?php _e('TLP Team Settings', TLP_TEAM_SLUG);?></h2>
     <div class="tlp-content-holder">
         <div class="tch-left">
-            <form id="tlp-settings" onsubmit="tlpTeamSettings(this); return false;">
+            <form id="tlp-team-settings" onsubmit="tlpTeamSettings(this); return false;">
 
                 <h3><?php _e('General settings',TLP_TEAM_SLUG);?></h3>
 
