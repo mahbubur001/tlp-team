@@ -409,7 +409,7 @@
     border-radius: 50%;
 }
 .tlp-team .layout3 .tpl-social a,
-.tlp-team .layout3 .tpl-social a:hover{
+.tlp-team .layout3 .tpl-social a:hover i.fa{
     width: 36px;
     height: 36px;
     border-radius: 50%;

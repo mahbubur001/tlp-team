@@ -706,7 +706,7 @@ if ( ! class_exists( 'TPLTeamShortCode' ) ):
 				$class = implode( ' ', $class );
 				$html  .= "<div class='" . esc_attr( $class ) . "' id='{$layoutID}' data-desktop='{$grid}'>";
 				$html  .= $this->layoutStyle( $layoutID, $atts, false, true );
-				$class = 'layout-' . $atts['layout'];
+				$class = 'layout' . $atts['layout'];
 				$attr  = '';
 				if ( $atts['layout'] == 'carousel' ) {
 					$loop               = $atts['loop'] == 1 ? 1 : 0;
