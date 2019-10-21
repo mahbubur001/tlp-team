@@ -20,7 +20,6 @@ class TlpTeamElementorWidget extends \Elementor\Widget_Base
     }
 
     protected function _register_controls() {
-        global $TLPteam;
         $this->start_controls_section(
             'setting_section',
             [
@@ -35,7 +34,7 @@ class TlpTeamElementorWidget extends \Elementor\Widget_Base
                 'type'    => \Elementor\Controls_Manager::SELECT2,
                 'id'      => 'layout',
                 'label'   => __('Layout', 'tlp-portfolio'),
-                'options' => $TLPteam->scLayouts()
+                'options' => TLPTeam()->scLayouts()
             )
         );
         $this->add_control(
@@ -44,7 +43,7 @@ class TlpTeamElementorWidget extends \Elementor\Widget_Base
                 'type'    => \Elementor\Controls_Manager::SELECT2,
                 'id'      => 'col',
                 'label'   => __('Column / Number to Display at slider', 'tlp-portfolio'),
-                'options' => $TLPteam->scColumns()
+                'options' => TLPTeam()->scColumns()
             )
         );
         $this->add_control(
@@ -53,7 +52,7 @@ class TlpTeamElementorWidget extends \Elementor\Widget_Base
                 'type'    => \Elementor\Controls_Manager::SELECT2,
                 'id'      => 'orderby',
                 'label'   => __('Order By', 'tlp-portfolio'),
-                'options' => $TLPteam->scOrderBy()
+                'options' => TLPTeam()->scOrderBy()
             )
         );
         $this->add_control(
@@ -62,7 +61,7 @@ class TlpTeamElementorWidget extends \Elementor\Widget_Base
                 'type'    => \Elementor\Controls_Manager::SELECT2,
                 'id'      => 'order',
                 'label'   => __('Order', 'tlp-portfolio'),
-                'options' => $TLPteam->scOrder()
+                'options' => TLPTeam()->scOrder()
             )
         );
         $this->add_control(

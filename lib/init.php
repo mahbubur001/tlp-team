@@ -212,10 +212,9 @@ class TLPteam
     }
 
     private function insertDefaultData() {
-        global $TLPteam;
-        update_option($TLPteam->options['installed_version'], $TLPteam->options['version']);
-        if (!get_option($TLPteam->options['settings'])) {
-            update_option($TLPteam->options['settings'], $TLPteam->defaultSettings);
+        update_option(TLPTeam()->options['installed_version'], TLPTeam()->options['version']);
+        if (!get_option(TLPTeam()->options['settings'])) {
+            update_option(TLPTeam()->options['settings'], TLPTeam()->defaultSettings);
         }
     }
 
@@ -232,9 +231,7 @@ class TLPteam
  * @return TLPteam
  */
 function TLPTeam() {
-    global $TLPteam;
-    $TLPteam = TLPteam::instance();
-    return $TLPteam;
+    return TLPteam::instance();
 }
 
 TLPTeam();

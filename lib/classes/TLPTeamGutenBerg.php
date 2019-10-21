@@ -3,9 +3,9 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-if ( ! class_exists( 'TLPTeamGutenBurg' ) ):
+if ( ! class_exists( 'TLPTeamGutenBerg' ) ):
 
-	class TLPTeamGutenBurg {
+	class TLPTeamGutenBerg {
 		protected $version;
 
 		function __construct() {
@@ -52,6 +52,7 @@ if ( ! class_exists( 'TLPTeamGutenBurg' ) ):
 				$shortcode .= ' class="' . $atts['wrapperClass'] . '"';
 			}
 			$shortcode .= ']';
+			echo $shortcode;
 
 			return do_shortcode( $shortcode );
 		}
@@ -62,22 +63,25 @@ if ( ! class_exists( 'TLPTeamGutenBurg' ) ):
 		}
 
 		function block_editor_assets() {
-			global $TLPteam;
 			// Scripts.
 			wp_enqueue_script(
 				'rt-tlp-team-gb-block-js',
-				$TLPteam->assetsUrl . "js/tlp-team-blocks.min.js",
+				TLPTeam()->assetsUrl . "js/tlp-team-blocks.min.js",
 				array( 'wp-blocks', 'wp-i18n', 'wp-element' ),
 				$this->version,
 				true
 			);
 			wp_localize_script( 'rt-tlp-team-gb-block-js', 'tlpTeam', array(
-				'layout'  => $TLPteam->scLayouts(),
-				'column'  => $TLPteam->scColumns(),
-				'orderby' => $TLPteam->scOrderBy(),
-				'order'   => $TLPteam->scOrder(),
-				'icon'    => $TLPteam->assetsUrl . 'images/team.png',
+				'layout'  => TLPTeam()->scLayouts(),
+				'column'  => TLPTeam()->scColumns(),
+				'orderby' => TLPTeam()->scOrderBy(),
+				'order'   => TLPTeam()->scOrder(),
+				'icon'    => TLPTeam()->assetsUrl . 'images/team.png',
 			) );
+//			wp_localize_script('rt-tlp-team-gb-block-js', 'rtTeam', array(
+//				'short_codes' => TLPTeam()->getTTPShortCodeList(),
+//				'icon' => TLPTeam()->assetsUrl . 'images/team.png',
+//			));
 			wp_enqueue_style( 'wp-edit-blocks' );
 		}
 	}

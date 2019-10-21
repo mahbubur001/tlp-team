@@ -1,7 +1,4 @@
-<?php
-    global $TLPteam;
-    $settings = get_option($TLPteam->options['settings']);
-?>
+<?php $settings = get_option(TLPTeam()->options['settings']); ?>
 <div class="wrap">
     <div id="upf-icon-edit-pages" class="icon32 icon32-posts-page"><br /></div>
     <h2><?php _e('TLP Team Settings', TLP_TEAM_SLUG);?></h2>
@@ -23,8 +20,8 @@
                         <td>
                             <select id="rt-feature-img-size" name="feature_img_size">
                                 <?php
-                                $fSize = !empty($settings['feature_img_size']) ? $settings['feature_img_size'] : $TLPteam->options['feature_img_size'];
-                                $imgSizes = $TLPteam->get_image_sizes();
+                                $fSize = !empty($settings['feature_img_size']) ? $settings['feature_img_size'] : TLPTeam()->options['feature_img_size'];
+                                $imgSizes = TLPTeam()->get_image_sizes();
                                 foreach ($imgSizes as $key => $size){
                                     $slt = $key == $fSize ? "selected" : null;
                                     echo "<option value='{$key}' {$slt}>{$size}</option>";
@@ -91,7 +88,7 @@
                 </table>
                 <p class="submit"><input type="submit" name="submit" id="tlpSaveButton" class="button button-primary" value="<?php _e('Save Changes', TLP_TEAM_SLUG); ?>"></p>
 
-                <?php wp_nonce_field( $TLPteam->nonceText(), 'tlp_nonce' ); ?>
+                <?php wp_nonce_field( TLPTeam()->nonceText(), 'tlp_nonce' ); ?>
             </form>
             <div id="response" class="updated"></div>
         </div>

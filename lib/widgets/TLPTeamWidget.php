@@ -54,7 +54,6 @@ if ( ! class_exists( 'TLPTeamWidget' ) ):
 			);
 
 			$instance = wp_parse_args( (array) $instance, $defaults );
-			global $TLPteam;
 			?>
             <p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:',
 						TLP_TEAM_SLUG ); ?></label>
@@ -68,7 +67,7 @@ if ( ! class_exists( 'TLPTeamWidget' ) ):
                         name="<?php echo $this->get_field_name( 'layout' ); ?>">
                     <option value="">Select one</option>
 					<?php
-					$layouts = $TLPteam->scLayouts();
+					$layouts = TLPTeam()->scLayouts();
 					foreach ( $layouts as $key => $layout ) {
 						$selected = ( $key == $instance['layout'] ? "selected" : null );
 						echo "<option value='{$key}' {$selected}>{$layout}</option>";
@@ -81,7 +80,7 @@ if ( ! class_exists( 'TLPTeamWidget' ) ):
                         name="<?php echo $this->get_field_name( 'col' ); ?>">
                     <option value="">Select one</option>
 					<?php
-					$cols = $TLPteam->scColumns();
+					$cols = TLPTeam()->scColumns();
 					foreach ( $cols as $key => $col ) {
 						$selected = ( $key == $instance['col'] ? "selected" : null );
 						echo "<option value='{$key}' {$selected}>{$col}</option>";
@@ -95,7 +94,7 @@ if ( ! class_exists( 'TLPTeamWidget' ) ):
                         name="<?php echo $this->get_field_name( 'orderby' ); ?>">
                     <option value="">Select one</option>
 					<?php
-					$obs = $TLPteam->scOrderBy();
+					$obs = TLPTeam()->scOrderBy();
 					foreach ( $obs as $key => $ob ) {
 						$selected = ( $key == $instance['orderby'] ? "selected" : null );
 						echo "<option value='{$key}' {$selected}>{$ob}</option>";
@@ -108,7 +107,7 @@ if ( ! class_exists( 'TLPTeamWidget' ) ):
                         name="<?php echo $this->get_field_name( 'order' ); ?>">
                     <option value="">Select one</option>
 					<?php
-					$orders = $TLPteam->scOrder();
+					$orders = TLPTeam()->scOrder();
 					foreach ( $orders as $key => $order ) {
 						$selected = ( $key == $instance['order'] ? "selected" : null );
 						echo "<option value='{$key}' {$selected}>{$order}</option>";

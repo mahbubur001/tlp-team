@@ -34,14 +34,12 @@ class TPLsettings {
 	 *  Ajax response for settings update
 	 */
 	function tlpTeamSettings() {
-		global $TLPteam;
-
 		$error = true;
-		if ( $TLPteam->verifyNonce() ) {
+		if ( TLPTeam()->verifyNonce() ) {
 			unset( $_REQUEST['action'] );
 			unset( $_REQUEST['tlp_nonce'] );
 			unset( $_REQUEST['_wp_http_referer'] );
-			update_option( $TLPteam->options['settings'], $_REQUEST );
+			update_option( TLPTeam()->options['settings'], $_REQUEST );
 			flush_rewrite_rules();
 			$response = array(
 				'error' => $error,
@@ -61,11 +59,10 @@ class TPLsettings {
 	 */
 	function tlp_pluginInit() {
 		$this->load_plugin_textdomain();
-		global $TLPteam;
-		$settings = get_option( $TLPteam->options['settings'] );
+		$settings = get_option( TLPTeam()->options['settings'] );
 		$width    = ! empty( $settings['feature_img']['width'] ) ? absint( $settings['feature_img']['width'] ) : 400;
 		$height   = ! empty( $settings['feature_img']['height'] ) ? absint( $settings['feature_img']['height'] ) : 400;
-		add_image_size( $TLPteam->options['feature_img_size'], $width, $height, true );
+		add_image_size( TLPTeam()->options['feature_img_size'], $width, $height, true );
 	}
 
 
@@ -92,32 +89,28 @@ class TPLsettings {
 	 *  TLP Style addition
 	 */
 	function tlp_style() {
-		global $TLPteam;
-		wp_enqueue_style( 'tpl_css_settings', $TLPteam->assetsUrl . 'css/settings.css', '', TLP_TEAM_VERSION );
+		wp_enqueue_style( 'tpl_css_settings', TLPTeam()->assetsUrl . 'css/settings.css', '', TLP_TEAM_VERSION );
 	}
 
 	/**
 	 *  Tlp script addition
 	 */
 	function tlp_script() {
-		global $TLPteam;
 		wp_enqueue_style( 'wp-color-picker' );
-		wp_enqueue_script( 'tpl_js_settings', $TLPteam->assetsUrl . 'js/settings.js', array(
+		wp_enqueue_script( 'tpl_js_settings', TLPTeam()->assetsUrl . 'js/settings.js', array(
 			'jquery',
 			'wp-color-picker'
 		), TLP_TEAM_VERSION, true );
-		$nonce = wp_create_nonce( $TLPteam->nonceText() );
+		$nonce = wp_create_nonce( TLPTeam()->nonceText() );
 		wp_localize_script( 'tpl_js_settings', 'tpl_var', array( 'tlp_nonce' => $nonce ) );
 	}
 
 	function tlp_team_settings() {
-		global $TLPteam;
-		$TLPteam->render_view( 'settings' );
+		TLPTeam()->render_view( 'settings' );
 	}
 
 	function tlp_team_sc() {
-		global $TLPteam;
-		$TLPteam->render_view( 'sc' );
+		TLPTeam()->render_view( 'sc' );
 	}
 
 	/**

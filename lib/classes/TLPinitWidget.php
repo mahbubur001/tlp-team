@@ -15,9 +15,7 @@ if(!class_exists('TLPinitWidget')):
 
 
 		function initWidget(){
-			global $TLPteam;
-
-			$TLPteam->loadWidget( $TLPteam->widgetsPath );
+			TLPTeam()->loadWidget( TLPTeam()->widgetsPath );
 		}
 	}
 

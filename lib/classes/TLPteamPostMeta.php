@@ -15,8 +15,7 @@ if (!class_exists('TLPteamPostMeta')):
             add_action( 'edit_form_after_title', array($this, 'team_after_title') );
         }
         function team_after_title($post){
-            global $TLPteam;
-            if( $TLPteam->post_type !== $post->post_type) {
+            if( TLPTeam()->post_type !== $post->post_type) {
                 return;
             }
             $html = null;
@@ -38,8 +37,7 @@ if (!class_exists('TLPteamPostMeta')):
         }
 
         function tlp_team_meta($post){
-                global $TLPteam;
-                wp_nonce_field( $TLPteam->nonceText(), 'tlp_nonce' );
+                wp_nonce_field( TLPTeam()->nonceText(), 'tlp_nonce' );
                 $meta = get_post_meta( $post->ID );
             ?>
             <div class="member-field-holder">
@@ -107,7 +105,7 @@ if (!class_exists('TLPteamPostMeta')):
             <h2 class="hndle ui-sortable-handle"><?php _e('Social Links', TLP_TEAM_SLUG); ?></h2>
             <?php
             $s = unserialize(get_post_meta( $post->ID, 'social' , true));
-                foreach($TLPteam->socialLink() as $id => $label){
+                foreach(TLPTeam()->socialLink() as $id => $label){
                 ?>
                 <div class="tlp-field-holder">
                     <div class="tplp-label">
@@ -126,11 +124,10 @@ if (!class_exists('TLPteamPostMeta')):
 
             if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
 
-            global $TLPteam;
-            if ( ! $TLPteam->verifyNonce() ) {
+            if ( ! TLPTeam()->verifyNonce() ) {
                 return $post_id;
             }
-            if ( $TLPteam->post_type != $post->post_type ) {
+            if ( TLPTeam()->post_type != $post->post_type ) {
                 return $post_id;
             }
 
@@ -168,10 +165,10 @@ if (!class_exists('TLPteamPostMeta')):
         }
 
         function tpl_team_script() {
-            global $post_type,$TLPteam;
-            if($post_type == $TLPteam->post_type){
-                $TLPteam->tlp_style();
-                $TLPteam->tlp_script();
+            global $post_type;
+            if($post_type == TLPTeam()->post_type){
+                TLPTeam()->tlp_style();
+                TLPTeam()->tlp_script();
             }
         }
     }

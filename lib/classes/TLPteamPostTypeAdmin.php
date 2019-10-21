@@ -34,9 +34,9 @@ if(!class_exists('TLPteamPostTypeAdmin')):
 
 
 		public function add_taxonomy_filters() {
-			global $typenow, $TLPteam;
+			global $typenow;
 			// Must set this to the post type you want the filter(s) displayed on
-			if ( $TLPteam->post_type !== $typenow ) {
+			if ( TLPTeam()->post_type !== $typenow ) {
 				return;
 			}
 			$taxonomies = array();

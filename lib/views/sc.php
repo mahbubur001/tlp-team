@@ -1,9 +1,6 @@
-<?php global $TLPteam;
-
-?>
 <div class="wrap">
 	<div id="upf-icon-edit-pages" class="icon32 icon32-posts-page"><br/></div>
-	<h2><?php _e( 'Shortcode generator', TLP_TEAM_SLUG ); ?></h2>
+	<h2><?php esc_html_e( 'Shortcode generator', TLP_TEAM_SLUG ); ?></h2>
 	<div class="tlp-content-holder">
 		<div class="tch-left">
 			<div class="postbox" id="scg-wrapper">
@@ -16,7 +13,7 @@
 							<div class="scg-field">
 								<select name="layout" id="sc-layout">
 									<?php
-									$layouts = $TLPteam->scLayouts();
+									$layouts = TLPTeam()->scLayouts();
 									foreach ( $layouts as $key => $layout ) {
 										echo "<option value={$key}>$layout</option>";
 									}
@@ -30,7 +27,7 @@
 								<select name="col">
 									<option value="">Default</option>
 									<?php
-									$cols = $TLPteam->scColumns();
+									$cols = TLPTeam()->scColumns();
 									foreach ( $cols as $key => $col ) {
 										echo "<option value={$key}>$col</option>";
 									}
@@ -44,7 +41,7 @@
 								<select name="orderby">
 									<option value="">Default</option>
 									<?php
-									$obs = $TLPteam->scOrderBy();
+									$obs = TLPTeam()->scOrderBy();
 									foreach ( $obs as $key => $ob ) {
 										echo "<option value={$key}>$ob</option>";
 									}
@@ -58,7 +55,7 @@
 								<select name="order">
 									<option value="">Default</option>
 									<?php
-									$orders = $TLPteam->scOrder();
+									$orders = TLPTeam()->scOrder();
 									foreach ( $orders as $key => $order ) {
 										echo "<option value={$key}>$order</option>";
 									}
@@ -83,7 +80,7 @@
 							<div class="scg-label"><label>Carousel Options</label></div>
 							<div class="scg-field">
                                 <?php
-                                    $options = $TLPteam->owlProperty();
+                                    $options = TLPTeam()->owlProperty();
                                     foreach ($options as $optId => $optName){
                                         echo "<label for='csc-{$optId}'><input id='csc-{$optId}' value='1' type='checkbox' name='{$optId}'> {$optName}</label>";
                                     }

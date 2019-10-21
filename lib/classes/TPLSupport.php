@@ -64,12 +64,11 @@ if( !class_exists( 'TPLSupport' ) ) :
 			}
 
 			if ( $imgSrc && $cSize ) {
-				global $TLPteam;
 				$w = ( ! empty( $customImgSize['width'] ) ? absint( $customImgSize['width'] ) : null );
 				$h = ( ! empty( $customImgSize['height'] ) ? absint( $customImgSize['height'] ) : null );
 				$c = ( ! empty( $customImgSize['crop'] ) && $customImgSize['crop'] == 'soft' ? false : true );
 				if ( $w && $h ) {
-					$imgSrc = $TLPteam->rtImageReSize( $imgSrc, $w, $h, $c );
+					$imgSrc = TLPTeam()->rtImageReSize( $imgSrc, $w, $h, $c );
 				}
 			}
 

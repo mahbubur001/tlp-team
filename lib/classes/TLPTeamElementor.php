@@ -13,8 +13,7 @@ if ( ! class_exists('TLPTeamElementor') ):
 		}
 
 		function init() {
-		    global $TLPteam;
-			require_once( $TLPteam->incPath . '/vendor/TlpTeamElementorWidget.php' );
+			require_once( TLPTeam()->incPath . '/vendor/TlpTeamElementorWidget.php' );
 
 			// Register widget
 			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new TlpTeamElementorWidget() );
