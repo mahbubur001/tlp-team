@@ -16,6 +16,15 @@ if ( ! class_exists( 'TLPTeamGutenBerg' ) ):
 				register_block_type( 'radiustheme/tlp-team', array(
 					'render_callback' => array( $this, 'render_shortcode' ),
 				) );
+				register_block_type('rttpg/tlp-team-pro', array(
+					'render_callback' => array($this,'render_shortcode_pro'),
+				));
+			}
+		}
+
+		static function render_shortcode_pro( $atts ){
+			if(!empty($atts['gridId']) && $id = absint($atts['gridId'])){
+				return do_shortcode( '[tlpteam id="' . $id . '"]' );
 			}
 		}
 
@@ -52,8 +61,6 @@ if ( ! class_exists( 'TLPTeamGutenBerg' ) ):
 				$shortcode .= ' class="' . $atts['wrapperClass'] . '"';
 			}
 			$shortcode .= ']';
-			echo $shortcode;
-
 			return do_shortcode( $shortcode );
 		}
 
@@ -72,16 +79,13 @@ if ( ! class_exists( 'TLPTeamGutenBerg' ) ):
 				true
 			);
 			wp_localize_script( 'rt-tlp-team-gb-block-js', 'tlpTeam', array(
-				'layout'  => TLPTeam()->scLayouts(),
-				'column'  => TLPTeam()->scColumns(),
-				'orderby' => TLPTeam()->scOrderBy(),
-				'order'   => TLPTeam()->scOrder(),
-				'icon'    => TLPTeam()->assetsUrl . 'images/team.png',
+				'layout'      => TLPTeam()->oldScLayouts(),
+				'column'      => TLPTeam()->scColumns(),
+				'orderby'     => TLPTeam()->scOrderBy(),
+				'order'       => TLPTeam()->scOrder(),
+				'short_codes' => TLPTeam()->getTTPShortCodeList(),
+				'icon'        => TLPTeam()->assetsUrl . 'images/team.png',
 			) );
-//			wp_localize_script('rt-tlp-team-gb-block-js', 'rtTeam', array(
-//				'short_codes' => TLPTeam()->getTTPShortCodeList(),
-//				'icon' => TLPTeam()->assetsUrl . 'images/team.png',
-//			));
 			wp_enqueue_style( 'wp-edit-blocks' );
 		}
 	}

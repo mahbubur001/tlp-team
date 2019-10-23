@@ -26,7 +26,7 @@ if ( ! class_exists( 'TPLTeamShortCode' ) ):
 				$new_shortCode = $post->post_type === TLPTeam()->getScPostType();
 			}
 
-			if ( ! isset( $atts['layout'] ) || $new_shortCode || $preview ) {
+			if ( $new_shortCode || $preview ) {
 				$args       = $arg = array();
 				$query_args = array(
 					'post_type'   => TLPTeam()->post_type,

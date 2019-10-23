@@ -13,7 +13,7 @@
 							<div class="scg-field">
 								<select name="layout" id="sc-layout">
 									<?php
-									$layouts = TLPTeam()->scLayouts();
+									$layouts = TLPTeam()->oldScLayouts();
 									foreach ( $layouts as $key => $layout ) {
 										echo "<option value={$key}>$layout</option>";
 									}

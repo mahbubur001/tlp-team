@@ -7,65 +7,9 @@ const {registerBlockType} = wp.blocks;
 const {SelectControl, PanelBody, PanelRow, TextControl} = wp.components;
 const {InspectorControls, ColorPalette} = wp.editor;
 
-registerBlockType('rttpg/tlp-team-pro', {
-    title: __('Tlp Team (Old)', "tlp-team"),
-    icon: 'grid-view',
-    category: 'common',
-    description: __('This is the tlp team pro settings section', "tlp-team"),
-    keywords: [
-        __('Tlp Team', "tlp-team"),
-        __('tlp-team', "tlp-team"),
-    ],
-    attributes: {
-        gridId: {
-            type: 'number',
-            default: 0,
-        }
-    },
-    edit: function (props) {
-        let {attributes: {gridId}, setAttributes} = props;
-        let gridTitle = "";
-        let options = [{value: 0, label: __("Select one", "tlp-team")}];
-        if (tlpTeam.short_codes) {
-            for (const [id, title] of Object.entries(tlpTeam.short_codes)) {
-                options.push({
-                    value: id,
-                    label: title
-                });
-                if (gridId && Number(id) === gridId) {
-                    gridTitle = title;
-                }
-            }
-        }
-        return (
-            [
-                <InspectorControls>
-                    <PanelRow>
-                        <SelectControl
-                            label={__('Select a grid:')}
-                            options={options}
-                            value={gridId}
-                            onChange={(val) => setAttributes({gridId: Number(val)})}
-                        />
-                    </PanelRow>
-                </InspectorControls>
-                ,
-                <div className={props.className}>
-                    {!gridId ? (<p>{__("Please select a shortcode from block settings", "tlp-team")}</p>) : (
-                        <div><span><img src={tlpTeam.icon}/></span> <span>{__('Tlp Team', "tlp-team")} ( {gridTitle} )</span></div>
-                    )}
-                </div>
-            ]
-        );
-    },
-
-    save: function () {
-        return null;
-    },
-});
 
 registerBlockType('radiustheme/tlp-team', {
-    title: __('Tlp Team (OLD)', "tlp-team"),
+    title: __('Tlp Team', "tlp-team"),
     icon: 'grid-view',
     description: __('This is the tlp team settings section', "tlp-team"),
     category: 'common',
@@ -171,7 +115,7 @@ registerBlockType('radiustheme/tlp-team', {
                             label={__('Layout:', "tlp-team")}
                             options={layouts}
                             value={layout}
-                            onChange={(val) => setAttributes({layout: val})}
+                            onChange={(val) => setAttributes({layout: Number(val)})}
                         />
                         <SelectControl
                             label={__('Column / Number to Display at slider:', "tlp-team")}
@@ -231,7 +175,7 @@ registerBlockType('radiustheme/tlp-team', {
                 </InspectorControls>
                 ,
                 <div className={props.className}>
-                    <div><span><img src={tlpTeam.icon}/></span> <span>{__('Tlp Team (OLD)', "tlp-team")}</span></div>
+                    <div><span><img src={tlpTeam.icon}/></span> <span>{__('Tlp Team', "tlp-team")}</span></div>
                     <div className="tlp-team-gb-shortcode-wrapper">
                         <div>{__("Layout", "tlp-team")}: {(layout ? layout : 1)}</div>
                         <div>{__("Column", "tlp-team")}: {(column ? column : 4)}</div>

@@ -62,7 +62,7 @@ if ( ! class_exists( 'TLPTeamHelper' ) ) :
 		 * Sanitize field value
 		 *
 		 * @param array $field
-		 * @param null  $value
+		 * @param null $value
 		 *
 		 * @return array|null
 		 * @internal param $value
@@ -339,7 +339,7 @@ if ( ! class_exists( 'TLPTeamHelper' ) ) :
 		}
 
 		/**
-		 * @param null   $post_id
+		 * @param null $post_id
 		 * @param        $meta_key
 		 * @param string $type
 		 *
@@ -369,6 +369,22 @@ if ( ! class_exists( 'TLPTeamHelper' ) ) :
 			}
 
 			return $select2Id;
+		}
+
+		function getTTPShortCodeList() {
+			$scList = array();
+			$scQ    = get_posts( array(
+				'post_type'      => TLPTeam()->getScPostType(),
+				'order_by'       => 'title',
+				'order'          => 'ASC',
+				'post_status'    => 'publish',
+				'posts_per_page' => - 1
+			) );
+			if ( ! empty( $scQ ) ) {
+				$scList = wp_list_pluck( $scQ, 'post_title', 'ID' );
+			}
+
+			return $scList;
 		}
 	}
 endif;
