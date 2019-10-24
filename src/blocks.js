@@ -4,16 +4,16 @@ import './scss/editor.scss';
 
 const {__} = wp.i18n;
 const {registerBlockType} = wp.blocks;
-const {SelectControl, PanelBody, PanelRow, TextControl} = wp.components;
+const {SelectControl, PanelBody, TextControl} = wp.components;
 const {InspectorControls, ColorPalette} = wp.editor;
 
 registerBlockType('rttpg/tlp-team-pro', {
-    title: __('Tlp Team (Old)', "tlp-team"),
+    title: __('TLP Team', "tlp-team"),
     icon: 'grid-view',
     category: 'common',
-    description: __('This is the tlp team pro settings section', "tlp-team"),
+    description: __('This is the tlp team settings section', "tlp-team"),
     keywords: [
-        __('Tlp Team', "tlp-team"),
+        __('TLP Team', "tlp-team"),
         __('tlp-team', "tlp-team"),
     ],
     attributes: {
@@ -40,19 +40,19 @@ registerBlockType('rttpg/tlp-team-pro', {
         return (
             [
                 <InspectorControls>
-                    <PanelRow>
+                    <PanelBody title={__('ShortCode', 'tlp-team')} initialOpen={true}>
                         <SelectControl
-                            label={__('Select a grid:')}
+                            label={__('Select a grid:', "tlp-team")}
                             options={options}
                             value={gridId}
                             onChange={(val) => setAttributes({gridId: Number(val)})}
                         />
-                    </PanelRow>
+                    </PanelBody>
                 </InspectorControls>
                 ,
                 <div className={props.className}>
                     {!gridId ? (<p>{__("Please select a shortcode from block settings", "tlp-team")}</p>) : (
-                        <div><span><img src={tlpTeam.icon}/></span> <span>{__('Tlp Team', "tlp-team")} ( {gridTitle} )</span></div>
+                        <div><span><img src={tlpTeam.icon}/></span> <span>{__('TLP Team', "tlp-team")} ( {gridTitle} )</span></div>
                     )}
                 </div>
             ]
@@ -65,12 +65,12 @@ registerBlockType('rttpg/tlp-team-pro', {
 });
 
 registerBlockType('radiustheme/tlp-team', {
-    title: __('Tlp Team (OLD)', "tlp-team"),
+    title: __('TLP Team (Deprecated)', "tlp-team"),
     icon: 'grid-view',
-    description: __('This is the tlp team settings section', "tlp-team"),
+    description: __('This shortcode is deprecated and this will remove end of this year (2019). Please use our new Block (TLP Team)', "tlp-team"),
     category: 'common',
     keywords: [
-        __('Tlp Team', "tlp-team"),
+        __('TLP Team', "tlp-team"),
         __('tlp-team', "tlp-team"),
     ],
     attributes: {
@@ -115,15 +115,6 @@ registerBlockType('radiustheme/tlp-team', {
             default: null
         }
     },
-
-    /**
-     * The edit function describes the structure of your block in the context of the editor.
-     * This represents what the editor will render when the block is used.
-     *
-     * The "edit" property must be a valid function.
-     *
-     * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
-     */
     edit: function (props) {
         let {attributes: {layout, column, orderby, order, nameColor, designationColor, sdColor, id, member, wrapperClass}, setAttributes} = props;
         let layouts = [{value: 0, label: __("Default", "tlp-team")}];
@@ -231,7 +222,7 @@ registerBlockType('radiustheme/tlp-team', {
                 </InspectorControls>
                 ,
                 <div className={props.className}>
-                    <div><span><img src={tlpTeam.icon}/></span> <span>{__('Tlp Team (OLD)', "tlp-team")}</span></div>
+                    <div><span><img src={tlpTeam.icon}/></span> <span>{__('TLP Team (Deprecated)', "tlp-team")}</span></div>
                     <div className="tlp-team-gb-shortcode-wrapper">
                         <div>{__("Layout", "tlp-team")}: {(layout ? layout : 1)}</div>
                         <div>{__("Column", "tlp-team")}: {(column ? column : 4)}</div>
@@ -264,14 +255,6 @@ registerBlockType('radiustheme/tlp-team', {
         );
     },
 
-    /**
-     * The save function defines the way in which the different attributes should be combined
-     * into the final markup, which is then serialized by Gutenberg into post_content.
-     *
-     * The "save" property must be specified and must be a valid function.
-     *
-     * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
-     */
     save: function () {
         return null;
     },

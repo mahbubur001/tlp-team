@@ -10,7 +10,6 @@ class TPLsettings {
 		add_action( 'wp_ajax_tlpTeamSettings', array( $this, 'tlpTeamSettings' ) );
 		add_action( 'admin_menu', array( $this, 'tlp_menu_register' ) );
 		add_filter( 'plugin_action_links_' . TLP_TEAM_PLUGIN_ACTIVE_FILE_NAME, array( $this, 'tlp_team_marketing' ) );
-		add_action( 'admin_notices', array( $this, 'deprecated_admin_notice' ) );
 	}
 
 	function tlp_team_marketing( $links ) {
@@ -19,15 +18,6 @@ class TPLsettings {
 		$links[] = '<a target="_blank" style="color: #39b54a;font-weight: 700;" href="' . esc_url( 'https://www.radiustheme.com/downloads/tlp-team-pro-for-wordpress/' ) . '">Get Pro</a>';
 
 		return $links;
-	}
-
-	function deprecated_admin_notice() {
-		$screen = get_current_screen();
-		if ( isset( $screen->post_type ) && ( $screen->post_type == TLPTeam()->post_type || $screen->post_type == TLPTeam()->getScPostType() ) ) {
-			$class   = 'notice notice-error is-dismissible';
-			$message = sprintf( __( 'Our old ShortCode generator is now deprecated, This will be removed end of the year 2019. You should use our latest <a href="%s">ShortCode Generator.</a>', 'tlp-team' ), admin_url( 'edit.php?post_type=team-sc' ) );
-			printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), $message );
-		}
 	}
 
 	/**
@@ -70,18 +60,12 @@ class TPLsettings {
 	 *  TLP menu addition
 	 */
 	function tlp_menu_register() {
-		$sc   = add_submenu_page( 'edit.php?post_type=team', __( 'Shortcode generator', TLP_TEAM_SLUG ), __( 'ShortCode (Deprecated)', TLP_TEAM_SLUG ), 'administrator', 'tlp_team_sc', array(
-			$this,
-			'tlp_team_sc'
-		) );
 		$page = add_submenu_page( 'edit.php?post_type=team', __( 'TLP Team Settings', TLP_TEAM_SLUG ), __( 'Settings', TLP_TEAM_SLUG ), 'administrator', 'tlp_team_settings', array(
 			$this,
 			'tlp_team_settings'
 		) );
 		add_action( 'admin_print_styles-' . $page, array( $this, 'tlp_style' ) );
 		add_action( 'admin_print_scripts-' . $page, array( $this, 'tlp_script' ) );
-		add_action( 'admin_print_styles-' . $sc, array( $this, 'tlp_style' ) );
-		add_action( 'admin_print_scripts-' . $sc, array( $this, 'tlp_script' ) );
 
 	}
 
@@ -107,10 +91,6 @@ class TPLsettings {
 
 	function tlp_team_settings() {
 		TLPTeam()->render_view( 'settings' );
-	}
-
-	function tlp_team_sc() {
-		TLPTeam()->render_view( 'sc' );
 	}
 
 	/**
