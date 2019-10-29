@@ -30,7 +30,7 @@ if ($sLink) {
     $sLink_html = $sLink_html ? sprintf('<div class="tpl-social">%s</div>', $sLink_html) : null;
 } ?>
 <div class="team-member tlp-equal-height <?php echo esc_attr($grid) ?>">
-    <div class="single-team-area">
+    <div class="single-team-area tlp-row">
         <?php echo $image; ?>
         <div class="<?php echo esc_attr($content_area); ?>">
             <?php echo $inner_title; ?>

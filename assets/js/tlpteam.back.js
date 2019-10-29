@@ -57,4 +57,43 @@
         });
     };
     initTlpTeam();
+    $(window).resize(HeightResize);
+    $(window).load(HeightResize);
+
+
+    function HeightResize() {
+        if ($(window).width() > 768) {
+            $(document).imagesLoaded(function () {
+                $(".tlp-team").each(function () {
+                    var desktopCol = $(this).attr("data-desktop") || $(this).attr("data-desktop-col");
+                    if (parseInt(desktopCol, 10) !== 12) {
+                        var tlpMaxH = 0;
+                        $(this).children('div').children(".tlp-equal-height").height("auto");
+                        $(this).children('div').children(".tlp-equal-height").each(function () {
+                            var $thisH = $(this).outerHeight();
+                            if ($thisH > tlpMaxH) {
+                                tlpMaxH = $thisH;
+                            }
+                        });
+                        $(this).children('div').children(".tlp-equal-height").height(tlpMaxH + "px");
+                    }
+                });
+
+
+                var tlpMaxH = 0;
+                $(".tlp-team-isotope > div > .tlp-equal-height").height("auto");
+                $(".tlp-team-isotope > div > .tlp-equal-height").each(function () {
+                    var $thisH = $(this).outerHeight();
+                    if ($thisH > tlpMaxH) {
+                        tlpMaxH = $thisH;
+                    }
+                });
+                $(".tlp-team-isotope > div > .tlp-equal-height").height(tlpMaxH + "px");
+            });
+        } else {
+            $(".tlp-team").children('div').children(".tlp-equal-height").height("auto");
+            $(".tlp-team-isotope > div > .tlp-equal-height").height("auto");
+        }
+    }
+
 })(jQuery, window);

@@ -334,7 +334,7 @@ if ( ! class_exists( 'TPLTeamShortCode' ) ):
 
 			$settings = get_option( TLPTeam()->options['settings'] );
 			$html     = null;
-			$html     .= '<div class="single-team-area">';
+			$html     .= '<div class="single-team-area tlp-row">';
 			if ( $imgSrc ) {
 				$html .= '<div class="' . $image_area . '">';
 				if ( $settings['link_detail_page'] == 'no' ) {
@@ -373,7 +373,7 @@ if ( ! class_exists( 'TPLTeamShortCode' ) ):
 
 			$settings = get_option( TLPTeam()->options['settings'] );
 			$html     = null;
-			$html     .= '<div class="single-team-area">';
+			$html     .= '<div class="single-team-area tlp-row">';
 			if ( $imgSrc ) {
 				$html .= '<div class="' . $image_area . ' round-img">';
 				if ( $settings['link_detail_page'] == 'no' ) {

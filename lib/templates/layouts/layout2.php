@@ -31,7 +31,7 @@ if ($sLink) {
 }
 ?>
 <div class="team-member tlp-equal-height <?php echo esc_attr($grid) ?>">
-    <div class="single-team-area">
+    <div class="single-team-area tlp-row">
         <?php echo $image; ?>
         <div class="<?php echo esc_attr($content_area); ?>">
             <?php echo $inner_title; ?>
