@@ -126,17 +126,7 @@ input.large-text.code.tlp-code-sc {
 .tch-right .postbox .button-primary {
     background: #8cc63e;
 }
-.scg-wrapper .scg-item-wrap {
-    float: left;
-    width: 33.333333333%;
-    box-sizing: border-box;
-    padding: 5px 10px;
-    margin-bottom: 10px;
-}
-.scg-wrapper .scg-item-wrap.full {
-    width: 100%;
-}
-#scg-wrapper .scg-wrapper:after,
+
 .rt-custom-image-size-wrap:after{
     clear: both;
     content: "";
@@ -153,24 +143,6 @@ input.large-text.code.tlp-code-sc {
     width: 33.333333%;
     float: left;
     box-sizing: border-box;
-}
-#scg-wrapper .scg-wrapper {
-    border-bottom: 1px solid #b5b5b5;
-}
-#scg-wrapper .scg-wrapper:last-child{
-    border-bottom: 0;
-}
-div#sc-output {
-    padding: 20px;
-}
-div#sc-output textarea{
-    padding: 10px;
-    font-size: 15px;
-    color: #fff;
-    background: #8cc63e;
-    font-weight: bold;
-    line-height: 25px;
-    width: 100%;
 }
 
 /*  ===============  Short code ===============  */

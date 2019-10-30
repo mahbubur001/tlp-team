@@ -28,6 +28,7 @@
             if (isCarousel.length && $.fn.owlCarousel) {
                 isCarousel.imagesLoaded(function () {
                     var options = isCarousel.data('owl-options');
+                    console.log(options);
                     isCarousel.addClass('owl-carousel owl-theme').owlCarousel({
                         nav: !!options.nav,
                         navElement: 'div',

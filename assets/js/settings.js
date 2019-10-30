@@ -25,14 +25,9 @@
     }
     //   Depricated .............
     imageSize();
-    $(window).on('load', function () {
-        createShortCode();
-    });
+
     $("#rt-feature-img-size").on('change', function () {
         imageSize();
-    });
-    $("#scg-wrapper").on('change', 'select,input,propertychange', function () {
-        createShortCode();
     });
     $("#sc-layout").on('change', function () {
         var val = $(this).val();
@@ -43,9 +38,6 @@
         }
     });
 
-    $("#scg-wrapper").on("input propertychange", function () {
-        createShortCode();
-    });
     //  End Depricated ...
 
     $("#tlp_team_sc_settings_meta").on('change', 'select,input', function () {
@@ -55,23 +47,6 @@
         renderTlpTeamPreview();
     });
 
-    function createShortCode() {
-        var sc = "[tlpteam";
-        $("#scg-wrapper").find('input[name],select[name],textarea[name]').each(function (index, item) {
-            var v = $(this).val(),
-                name = this.name;
-            if (this.type === 'checkbox') {
-                if (this.checked && $("#sc-layout").val() == 'carousel') {
-                    sc = v ? sc + " " + name + "=" + '"' + v + '"' : sc;
-                }
-            } else {
-                sc = v ? sc + " " + name + "=" + '"' + v + '"' : sc;
-            }
-
-        });
-        sc = sc + "]";
-        $("#sc-output textarea").val(sc);
-    }
 
     function featureImageEffect() {
         if ($("#ttp_image").is(':checked')) {

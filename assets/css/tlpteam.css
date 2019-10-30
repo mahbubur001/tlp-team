@@ -31,6 +31,7 @@
     padding-left: 15px;
     padding-right: 15px;
 }
+
 .tlp-row {
     display: flex;
     flex-wrap: wrap;
@@ -167,9 +168,13 @@
     padding: 0 !important;
 }
 
-.tlp-team a {
+body .tlp-team .team-member a {
     text-decoration: none;
     box-shadow: none;
+}
+
+.tlp-team .short-bio p {
+    margin-top: 0;
 }
 
 /************************* end Common *******************/
