@@ -31,16 +31,6 @@
     padding-left: 15px;
     padding-right: 15px;
 }
-
-.clearfix:before, .clearfix:after, .tlp-container:before, .tlp-container:after, .tlp-team-container:before, .tlp-container-fluid:after, .tlp-row:before, .tlp-row:after {
-    content: " ";
-    display: table;
-}
-
-.clearfix:after, .tlp-container:after, .tlp-team-container:after, .tlp-row:after {
-    clear: both;
-}
-
 .tlp-row {
     display: flex;
     flex-wrap: wrap;
