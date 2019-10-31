@@ -3,10 +3,10 @@
     window.initTlpTeam = function () {
         $(".tlp-team").each(function () {
             var container = $(this),
-                isIsotope = container.find('.tlp-team-isotope'),
-                isCarousel = container.find('.layout-carousel, .tlp-team-carousel');
-            if (isIsotope.length && $.fn.isotope) {
-                var isotope = isIsotope.imagesLoaded(function () {
+                isotope_wrap = container.find('.tlp-team-isotope'),
+                carouselWrap = container.find('.layout-carousel, .tlp-team-carousel');
+            if (isotope_wrap.length && $.fn.isotope) {
+                var isotope = isotope_wrap.imagesLoaded(function () {
                     isotope.isotope({
                         getSortData: {
                             name: '.name',
@@ -25,13 +25,14 @@
                     $(this).addClass('selected');
                 });
             }
-            if (isCarousel.length && $.fn.owlCarousel) {
-                isCarousel.imagesLoaded(function () {
-                    var options = isCarousel.data('owl-options');
-                    console.log(options);
-                    isCarousel.addClass('owl-carousel owl-theme').owlCarousel({
+            if (carouselWrap.length && $.fn.owlCarousel) {
+                carouselWrap.imagesLoaded(function () {
+                    var dItem = parseInt(container.data('desktop-col'), 10) || 3,
+                        tItem = parseInt(container.data('tab-col'), 10) || 2,
+                        mItem = parseInt(container.data('mobile-col'), 10) || 1,
+                        options = carouselWrap.data('owl-options');
+                    carouselWrap.addClass('owl-carousel owl-theme').owlCarousel({
                         nav: !!options.nav,
-                        navElement: 'div',
                         dots: !!options.dots,
                         autoplay: !!options.autoplay,
                         autoplayHoverPause: !!options.autoplayHoverPause,
@@ -43,13 +44,13 @@
                         responsiveClass: true,
                         responsive: {
                             0: {
-                                items: 1
+                                items: mItem
                             },
                             767: {
-                                items: 2
+                                items: tItem
                             },
                             991: {
-                                items: parseInt(options.items, 10) || 3
+                                items: dItem
                             }
                         }
                     });
