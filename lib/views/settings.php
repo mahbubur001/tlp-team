@@ -119,10 +119,7 @@
                         <li>Full Responsive and Mobile Friendly.</li>
                         <li>33 Layouts (Grid, Table, Isotope & Carousel).</li>
                         <li>100+ Layout variation.</li>
-                        <li>Detail Page Field control (New).</li>
-                        <li>All text size, color, text align and weight control.</li>
                         <li>Square / Rounded Image Style.</li>
-                        <li>Grid with Margin or No Margin.</li>
                         <li>Social icon, color size and background color control.</li>
                         <li>Fully translatable (POT files included (/languages/))</li>
                         <li>Detail Page Field control (New).</li>
@@ -132,7 +129,6 @@
                         <li>Layout Preview on Shortcode Generator(New V 2.0).</li>
                         <li>Short by & Ordering option (New V 2.0).</li>
                         <li>Gutter or Padding Control (New V 2.0).</li>
-                        <li>Search option added (New V 2.0).</li>
                         <li>GrayScale option added (New V 2.0).</li>
                         <li>Single Member Popup (New).</li>
                         <li>Multiple Designation (New).</li>
@@ -142,30 +138,23 @@
                         <li>Assign member as user (New).</li>
                         <li>Member Latest post show in detail/popup page (New).</li>
                         <li>Order by Random (New).</li>
-                        <li>Filter by Department & Designation (New V 2.0).</li>
                         <li>Dynamic Image Re-size added (New V 2.0).</li>
-                        <li>Email & Web add as icon in social button (New V 2.0).</li>
                         <li>Taxonomy Ordering ie Department, Designation added (New V 2.0).</li>
-                        <li>Single Popup page color control (New V 2.0).</li>
-                        <li>2 Grids, 2 Isotope & 1 Slider Layout added (New V 2.0).</li>
-                        <li>Desktop, Tab & Mobile device display control (New V 2.0).
+                    </ol>
+                    <p><a href="https://radiustheme.com/tlp-team-pro-for-wordpress/" class="button button-primary"
+                              target="_blank">Get Pro Version</a></p>
                 </div>
-                <li>WPML Compatibility added (New V 2.0).</li>
-                <li>Auto update added (New V 2.7)</li>
-                </ol>
-                <p></p><a href="https://radiustheme.com/tlp-team-pro-for-wordpress/" class="button button-primary"
-                          target="_blank">Get Pro Version</a></p>
             </div>
         </div>
     </div>
-</div>
 
-<div class="tlp-help">
-    <p class="tlp-help-link"><a class="button-primary" href="http://demo.radiustheme.com/wordpress/plugins/tlp-team/"
-                                target="_blank"><?php _e( 'Demo', TLP_TEAM_SLUG ); ?></a> <a class="button-primary"
-                                                                                             href="https://radiustheme.com/how-to-setup-configure-tlp-team-free-version-for-wordpress/"
-                                                                                             target="_blank"><?php _e( 'Documentation', TLP_TEAM_SLUG ); ?></a>
-    </p>
-</div>
+    <div class="tlp-help">
+        <p class="tlp-help-link"><a class="button-primary"
+                                    href="http://demo.radiustheme.com/wordpress/plugins/tlp-team/"
+                                    target="_blank"><?php _e( 'Demo', TLP_TEAM_SLUG ); ?></a> <a class="button-primary"
+                                                                                                 href="https://radiustheme.com/how-to-setup-configure-tlp-team-free-version-for-wordpress/"
+                                                                                                 target="_blank"><?php _e( 'Documentation', TLP_TEAM_SLUG ); ?></a>
+        </p>
+    </div>
 
 </div>
