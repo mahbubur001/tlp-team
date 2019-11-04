@@ -410,5 +410,42 @@ if ( ! class_exists( 'TLPTeamOptions' ) ) :
 			);
 		}
 
+		function pro_features_list() {
+			$html = '
+			<div class="rt-features-wrap">
+                <h2 class="item-title">TLP Team<span>Pro</span>Features</h2>
+                <ul class="list-item">
+                    <li>Full Responsive and Mobile Friendly.</li>
+                    <li>33 Layouts (Grid, Table, Isotope & Carousel).</li>
+                    <li>100+ Layout variation.</li>
+                    <li>Square / Rounded Image Style.</li>
+                    <li>Social icon, color size and background color control.</li>
+                    <li>Fully translatable (POT files included (/languages/))</li>
+                    <li>Detail Page Field control (New).</li>
+                    <li>All 14 layouts now can turn as Grid or Filter (New V 2.0).</li>
+                    <li>Improve Code & AJAX functionality (New V 2.0).</li>
+                    <li>Now Filter as Button or Drop down (New V 2.0).</li>
+                    <li>Layout Preview on Shortcode Generator(New V 2.0).</li>
+                    <li>Short by & Ordering option (New V 2.0).</li>
+                    <li>Gutter or Padding Control (New V 2.0).</li>
+                    <li>GrayScale option added (New V 2.0).</li>
+                    <li>Single Member Popup (New).</li>
+                    <li>Multiple Designation (New).</li>
+                    <li>Added additional image for gallery (New).</li>
+                    <li>Skill fields with progress bar.</li>
+                    <li>Pagination (You can set how many show per page)</li>
+                    <li>Assign member as user (New).</li>
+                    <li>Member Latest post show in detail/popup page (New).</li>
+                    <li>Order by Random (New).</li>
+                    <li>Dynamic Image Re-size added (New V 2.0).</li>
+                    <li>Taxonomy Ordering ie Department, Designation added (New V 2.0).</li>
+                </ul>
+                <a href="https://radiustheme.com/tlp-team-pro-for-wordpress/" class="rt-admin-btn button button-primary"
+                      target="_blank">Get Pro Version</a>
+            </div>';
+
+			return $html;
+		}
+
 	}
 endif;
