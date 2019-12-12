@@ -354,7 +354,7 @@ input.large-text.code.tlp-code-sc {
 .rt-tab-content .tlp-label {
     font-weight: bold;
     margin-bottom: 5px;
-    flex: 0 0 25%;
+    flex: 0 0 200px;
 }
 
 .rt-tab-content .tlp-field {
@@ -719,24 +719,6 @@ body .rt-admin-btn:hover {
     margin: 0 0 25px 0;
 }
 
-@media only screen and (max-width: 1199px) {
-    .rt-update-pro-btn-wrap .rt-update-pro-btn {
-        font-size: 20px;
-    }
-}
-
-@media only screen and (max-width: 767px) {
-    .rt-update-pro-btn-wrap .rt-update-pro-btn {
-        font-size: 18px;
-    }
-}
-
-@media only screen and (max-width: 479px) {
-    .rt-update-pro-btn-wrap .rt-update-pro-btn {
-        font-size: 16px;
-    }
-}
-
 .rt-update-pro-btn-wrap .rt-update-pro-btn:hover {
     background-color: #4e35cc;
     text-decoration: none;
@@ -814,4 +796,47 @@ ul#order-target li.placeholder {
     border: dashed 2px #ccc;
     height: 30px;
     background-color: #fff;
+}
+
+
+@media only screen and (max-width: 1199px) {
+    .rt-update-pro-btn-wrap .rt-update-pro-btn {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 950px) {
+    #tlp-team-setting-wrapper {
+        flex-direction: column;
+    }
+
+    .tlp-team-setting-doc-wrap {
+        margin-left: 0;
+        flex: 1;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .rt-update-pro-btn-wrap .rt-update-pro-btn {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 479px) {
+    .rt-update-pro-btn-wrap .rt-update-pro-btn {
+        font-size: 16px;
+    }
+
+    .rt-tab-content .tlp-field-holder {
+        flex-direction: column;
+    }
+
+    .rt-tab-content .tlp-label {
+        flex: 1;
+        padding: 0;
+        margin-bottom: 10px;
+    }
+    .tlp-field-holder .tlp-field{
+        padding: 0;
+    }
 }
