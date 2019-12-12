@@ -290,13 +290,13 @@ if ( ! class_exists( 'TLPTeamOptions' ) ) :
 
 		function socialLink() {
 			return array(
-				'facebook'    => __( 'Facebook', TLP_TEAM_SLUG ),
-				'twitter'     => __( 'Twitter', TLP_TEAM_SLUG ),
-				'linkedin'    => __( 'LinkedIn', TLP_TEAM_SLUG ),
-				'youtube'     => __( 'Youtube', TLP_TEAM_SLUG ),
-				'vimeo'       => __( 'Vimeo', TLP_TEAM_SLUG ),
-				'google-plus' => __( 'Google+', TLP_TEAM_SLUG ),
-				'instagram'   => __( 'Instagram', TLP_TEAM_SLUG )
+				'facebook'    => __( 'Facebook', "tlp-team" ),
+				'twitter'     => __( 'Twitter', "tlp-team" ),
+				'linkedin'    => __( 'LinkedIn', "tlp-team" ),
+				'youtube'     => __( 'Youtube', "tlp-team" ),
+				'vimeo'       => __( 'Vimeo', "tlp-team" ),
+				'google-plus' => __( 'Google+', "tlp-team" ),
+				'instagram'   => __( 'Instagram', "tlp-team" )
 			);
 		}
 
@@ -396,8 +396,8 @@ if ( ! class_exists( 'TLPTeamOptions' ) ) :
 
 		function scOrder() {
 			return array(
-				'ASC'  => __( "Ascending", TLP_TEAM_SLUG ),
-				'DESC' => __( "Descending", TLP_TEAM_SLUG ),
+				'ASC'  => __( "Ascending", "tlp-team" ),
+				'DESC' => __( "Descending", "tlp-team" ),
 			);
 		}
 

@@ -804,7 +804,7 @@ if ( ! class_exists( 'TPLTeamShortCode' ) ):
 				$html .= '</div>';
 				$html .= '</div>'; // end container
 			} else {
-				$html .= "<p>" . __( 'No member found', TLP_TEAM_SLUG ) . "</p>";
+				$html .= "<p>" . __( 'No member found', "tlp-team" ) . "</p>";
 			}
 
 			return $html;

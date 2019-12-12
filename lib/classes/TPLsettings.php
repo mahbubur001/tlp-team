@@ -33,12 +33,12 @@ class TPLsettings {
 			flush_rewrite_rules();
 			$response = array(
 				'error' => $error,
-				'msg'   => __( 'Settings successfully updated', TLP_TEAM_SLUG )
+				'msg'   => __( 'Settings successfully updated', "tlp-team" )
 			);
 		} else {
 			$response = array(
 				'error' => true,
-				'msg'   => __( 'Security Error!!', TLP_TEAM_SLUG )
+				'msg'   => __( 'Security Error!!', "tlp-team" )
 			);
 		}
 		wp_send_json( $response );
@@ -60,7 +60,7 @@ class TPLsettings {
 	 *  TLP menu addition
 	 */
 	function tlp_menu_register() {
-		$page = add_submenu_page( 'edit.php?post_type=team', __( 'TLP Team Settings', TLP_TEAM_SLUG ), __( 'Settings', TLP_TEAM_SLUG ), 'administrator', 'tlp_team_settings', array(
+		$page = add_submenu_page( 'edit.php?post_type=team', __( 'TLP Team Settings', "tlp-team" ), __( 'Settings', "tlp-team" ), 'administrator', 'tlp_team_settings', array(
 			$this,
 			'tlp_team_settings'
 		) );

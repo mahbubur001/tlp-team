@@ -106,10 +106,10 @@ if(!class_exists('TLPteamPostTypeAdmin')):
 
 
 		public function arrange_team_columns( $columns ) {
-			$column_thumbnail = array( 'thumbnail' => __( 'Image', TLP_TEAM_SLUG ) );
-			$column_designation = array( 'designation' => __( 'Designation', TLP_TEAM_SLUG ) );
-			$column_email = array( 'email' => __( 'Email', TLP_TEAM_SLUG ) );
-			$column_location = array( 'location' => __( 'Location', TLP_TEAM_SLUG ) );
+			$column_thumbnail = array( 'thumbnail' => __( 'Image', "tlp-team" ) );
+			$column_designation = array( 'designation' => __( 'Designation', "tlp-team" ) );
+			$column_email = array( 'email' => __( 'Email', "tlp-team" ) );
+			$column_location = array( 'location' => __( 'Location', "tlp-team" ) );
 			return array_slice( $columns, 0, 2, true ) + $column_thumbnail + $column_designation + $column_email + $column_location + array_slice( $columns, 1, null, true );
 		}
 

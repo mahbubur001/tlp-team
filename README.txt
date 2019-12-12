@@ -3,7 +3,7 @@ Contributors: techlabpro1
 Donate link:
 Tags: team, teams, team display, team members profile, our team, team members, meet the team, team plugin, wordpress team plugin, responsive team plugin, team showcase, team member display, members profiles, my team, our team, team showcase, team grid, team profile, stuff, our stuff, meet the stuff, team member showcase, team member wordpress plugin, wordpress team member plugin, wp team, team free, team free plugin, responsive team plugin
 Requires at least: 4.5
-Tested up to: 5.2
+Tested up to: 5.3
 Stable tag: 2.5.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html

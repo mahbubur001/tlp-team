@@ -1,16 +1,16 @@
 <?php $settings = get_option( TLPTeam()->options['settings'] ); ?>
 <div class="wrap">
     <div id="upf-icon-edit-pages" class="icon32 icon32-posts-page"><br/></div>
-    <h2><?php _e( 'TLP Team Settings', TLP_TEAM_SLUG ); ?></h2>
+    <h2><?php _e( 'TLP Team Settings', "tlp-team" ); ?></h2>
     <div class="tlp-content-holder">
         <form id="tlp-team-settings" onsubmit="tlpTeamSettings(this); return false;">
 
-            <h3><?php _e( 'General settings', TLP_TEAM_SLUG ); ?></h3>
+            <h3><?php _e( 'General settings', "tlp-team" ); ?></h3>
 
             <table class="form-table">
                 <tr>
                     <th scope="row"><label
-                                for="primary-color"><?php _e( 'Primary Color', TLP_TEAM_SLUG ); ?></label></th>
+                                for="primary-color"><?php _e( 'Primary Color', "tlp-team" ); ?></label></th>
                     <td class="">
                         <input name="primary_color" id="primary_color" type="text"
                                value="<?php echo( isset( $settings['primary_color'] ) ? ( $settings['primary_color'] ? $settings['primary_color'] : '#0367bf' ) : '#0367bf' ); ?>"
@@ -18,7 +18,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row"><label for="imgWidth"><?php _e( 'Image Size', TLP_TEAM_SLUG ); ?></label></th>
+                    <th scope="row"><label for="imgWidth"><?php _e( 'Image Size', "tlp-team" ); ?></label></th>
                     <td>
                         <select id="rt-feature-img-size" name="feature_img_size">
 						    <?php
@@ -60,18 +60,18 @@
                 </tr>
 
                 <tr>
-                    <th scope="row"><label for="slug"><?php _e( 'Slug', TLP_TEAM_SLUG ); ?></label></th>
+                    <th scope="row"><label for="slug"><?php _e( 'Slug', "tlp-team" ); ?></label></th>
                     <td class="">
                         <input name="slug" id="slug" type="text"
                                value="<?php echo( isset( $settings['slug'] ) ? ( $settings['slug'] ? sanitize_title_with_dashes( $settings['slug'] ) : 'team' ) : 'team' ); ?>"
                                size="15" class="">
-                        <p class="description"><?php _e( 'Slug configuration', TLP_TEAM_SLUG ); ?></p>
+                        <p class="description"><?php _e( 'Slug configuration', "tlp-team" ); ?></p>
                     </td>
                 </tr>
 
                 <tr>
                     <th scope="row"><label
-                                for="link_detail_page"><?php _e( 'Link To Detail Page', TLP_TEAM_SLUG ); ?></label>
+                                for="link_detail_page"><?php _e( 'Link To Detail Page', "tlp-team" ); ?></label>
                     </th>
                     <td class="">
                         <fieldset>
@@ -93,7 +93,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row"><label for="css"><?php _e( 'Custom Css ', TLP_TEAM_SLUG ); ?></label></th>
+                    <th scope="row"><label for="css"><?php _e( 'Custom Css ', "tlp-team" ); ?></label></th>
                     <td>
                             <textarea name="custom_css" cols="40"
                                       rows="6"><?php echo( isset( $settings['custom_css'] ) ? ( $settings['custom_css'] ? $settings['custom_css'] : null ) : null ); ?></textarea>
@@ -103,7 +103,7 @@
             </table>
             <p class="submit"><input type="submit" name="submit" id="tlpSaveButton"
                                      class="rt-admin-btn button button-primary"
-                                     value="<?php _e( 'Save Changes', TLP_TEAM_SLUG ); ?>"></p>
+                                     value="<?php _e( 'Save Changes', "tlp-team" ); ?>"></p>
 
 		    <?php wp_nonce_field( TLPTeam()->nonceText(), 'tlp_nonce' ); ?>
         </form>
@@ -111,10 +111,10 @@
     </div>
     <div class="tlp-help-link">
         <a class="rt-admin-btn button-primary" href="http://demo.radiustheme.com/wordpress/plugins/tlp-team/"
-           target="_blank"><?php _e( 'Demo', TLP_TEAM_SLUG ); ?></a>
+           target="_blank"><?php _e( 'Demo', "tlp-team" ); ?></a>
         <a class="rt-admin-btn button-primary"
            href="https://radiustheme.com/how-to-setup-configure-tlp-team-free-version-for-wordpress/"
-           target="_blank"><?php _e( 'Documentation', TLP_TEAM_SLUG ); ?></a>
+           target="_blank"><?php _e( 'Documentation', "tlp-team" ); ?></a>
     </div>
 </div>
 

@@ -21,13 +21,6 @@
     display: none;
 }
 
-input.large-text.code.tlp-code-sc {
-    color: #fff;
-    background: #8cc63e;
-    font-weight: bold;
-    padding-top: 3px;
-}
-
 .tlp_loading {
     background: url('../images/loading.gif') no-repeat center center;
     padding: 11px;
@@ -37,25 +30,27 @@ input.large-text.code.tlp-code-sc {
     display: none;
 }
 
-.tlp-field {
-    float: right;
-    width: 75%;
-}
-
-.tplp-label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    float: left;
-    width: 25%;
-}
 
 .tlp-field-holder {
-    width: 100%;
-    margin-bottom: 10px;
+    display: flex;
+    border-bottom: 1px solid #EEEEEE;
 }
 
+.tlp-field-holder .tlp-field {
+    flex: 1;
+    padding: 15px 15px 15px 10px;
+}
 
-.tlp-field textarea, .tlp-field input[type=text], .tlp-field input[type=url], .tlp-field input[type=email] {
+.tlp-field-holder .tlp-label {
+    font-weight: bold;
+    flex: 0 0 200px;
+    padding: 15px 10px 15px 15px;
+}
+
+.tlp-field-holder .tlp-field textarea,
+.tlp-field-holder .tlp-field input[type=text],
+.tlp-field-holder .tlp-field input[type=url],
+.tlp-field-holder .tlp-field input[type=email] {
     width: 75%;
 }
 
@@ -130,7 +125,7 @@ body.post-type-team-sc div#misc-publishing-actions, body.post-type-team-sc div#m
     width: 100%;
 }
 
-.tlp-sc-meta-field-holder .sc-meta-field-full{
+.tlp-sc-meta-field-holder .sc-meta-field-full {
     border-bottom: 1px solid #e7e7e7;
     margin-bottom: 10px;
 }
@@ -344,19 +339,6 @@ input.large-text.code.tlp-code-sc {
     color: #fff;
     background: #5d3dfd;
     font-weight: bold;
-    padding: 10px;
-}
-.rt-tab-content input[type=text],
-.rt-tab-content input[type=password],
-.rt-tab-content input[type=email],
-.rt-tab-content input[type=url],
-.rt-tab-content input[type=number]{
-    min-height: 35px;
-    background-color: #f9f9f9;
-    box-shadow: inset 0 0 2px 0 #9d9d9d;
-    border-radius: 4px;
-    border: 0;
-    padding: 10px;
 }
 
 .rt-tab-content .tlp-field-holder {
@@ -365,16 +347,17 @@ input.large-text.code.tlp-code-sc {
     display: flex;
 }
 
-.rt-tab-content .tlp-field-holder:last-child{
+.rt-tab-content .tlp-field-holder:last-child {
     border-bottom: 0;
 }
 
 .rt-tab-content .tlp-label {
     font-weight: bold;
     margin-bottom: 5px;
-    flex:0 0 25%;
+    flex: 0 0 25%;
 }
-.rt-tab-content  .tlp-field {
+
+.rt-tab-content .tlp-field {
     flex: 1;
 }
 
@@ -618,14 +601,16 @@ body .rt-admin-btn.button-primary {
     font-weight: 400;
     color: #ffffff;
     text-decoration: none;
-    padding: 9px 26px;
+    padding: 9px 18px;
     border-radius: 4px;
     position: relative;
     z-index: 2;
+    line-height: 1.4;
     transition: all 0.3s ease-in-out;
     height: auto;
 }
 
+body .rt-admin-btn.button-primary,
 body .rt-admin-btn:hover {
     background-color: #4e35cc;
     color: #ffffff;
@@ -650,6 +635,8 @@ body .rt-admin-btn:hover {
     background: transparent;
     border: 0;
 }
+
+#rt_plugin_team_sc_pro_information button.handlediv,
 #rt_plugin_team_sc_pro_information h2.hndle {
     display: none;
 }
@@ -659,7 +646,12 @@ body .rt-admin-btn:hover {
     padding: 0;
     margin: 0;
 }
+
 /* update pro information */
+
+.rt-document-box.rt-update-pro-btn-wrap {
+    padding: 0;
+}
 
 .rt-update-pro-btn-wrap {
     margin-bottom: 30px;
@@ -669,7 +661,7 @@ body .rt-admin-btn:hover {
     text-align: center;
     background-color: #5d3dfd;
     display: block;
-    font-size: 22px;
+    font-size: 16px;
     font-weight: 600;
     color: #ffffff;
     text-decoration: none;

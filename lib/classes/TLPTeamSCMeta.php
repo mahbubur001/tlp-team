@@ -127,10 +127,8 @@ if ( ! class_exists( 'TLPTeamSCMeta' ) ):
 		}
 
 		function rt_plugin_team_sc_pro_information() {
-			$html = '<div class="rt-update-pro-btn-wrap">
-                <a href="https://radiustheme.com/tlp-team-pro-for-wordpress/" target="_blank" class="rt-update-pro-btn">Update Pro To Get More Features</a>
-            </div>';
-			$html .= '<div class="rt-document-box">
+
+			$html = '<div class="rt-document-box">
 							<div class="rt-box-icon"><i class="dashicons dashicons-media-document"></i></div>
 							<div class="rt-box-content">
                     			<h3 class="rt-box-title">Documentation</h3>
@@ -148,7 +146,9 @@ if ( ! class_exists( 'TLPTeamSCMeta' ) ):
                         			<a href="https://www.radiustheme.com/contact/" target="_blank" class="rt-admin-btn">Get Support</a>
                 			</div>
 						</div>';
-
+			$html .= '<div class="rt-document-box rt-update-pro-btn-wrap">
+                <a href="https://radiustheme.com/tlp-team-pro-for-wordpress/" target="_blank" class="rt-update-pro-btn">Update Pro To Get More Features</a>
+            </div>';
 			echo $html;
 		}
 

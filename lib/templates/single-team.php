@@ -29,13 +29,13 @@ while ( have_posts() ) : the_post();
 			$html .="<div class='tlp-single-details tlp-team'>";
 			$html .= '<ul class="contact-info">';
 			if($tel){
-				$html .="<li class='telephone'>".__('<strong>Tel:</strong>',TLP_TEAM_SLUG)." $tel</li>";
+				$html .="<li class='telephone'>".__('<strong>Tel:</strong>',"tlp-team" )." $tel</li>";
 			}if($loc){
-				$html .="<li class='location'>".__('<strong>Location:</strong>',TLP_TEAM_SLUG)." $loc</li>";
+				$html .="<li class='location'>".__('<strong>Location:</strong>',"tlp-team" )." $loc</li>";
 			}if($email){
-				$html .="<li class='email'>".__('<strong>Email:</strong>',TLP_TEAM_SLUG)." <a href='mailto:{$email}'>{$email}</a></li>";
+				$html .="<li class='email'>".__('<strong>Email:</strong>',"tlp-team" )." <a href='mailto:{$email}'>{$email}</a></li>";
 			}if($url){
-				$html .="<li class='web_url'>".__('<strong>URL:</strong>',TLP_TEAM_SLUG)." <a href='{$url}' target='_blank'>$url</a></li>";
+				$html .="<li class='web_url'>".__('<strong>URL:</strong>',"tlp-team" )." <a href='{$url}' target='_blank'>$url</a></li>";
 			}
 			$html .= "</ul>";
 

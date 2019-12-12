@@ -15,9 +15,9 @@ if ( ! class_exists( 'TLPTeamWidget' ) ):
 
 			$widget_ops = array(
 				'classname'   => 'widget_tlpTeam',
-				'description' => __( 'Display the Team.', TLP_TEAM_SLUG )
+				'description' => __( 'Display the Team.', "tlp-team" )
 			);
-			parent::__construct( 'widget_tlpTeam', __( 'TPL Team', TLP_TEAM_SLUG ), $widget_ops );
+			parent::__construct( 'widget_tlpTeam', __( 'TPL Team', "tlp-team" ), $widget_ops );
 
 		}
 
@@ -56,13 +56,13 @@ if ( ! class_exists( 'TLPTeamWidget' ) ):
 			$instance = wp_parse_args( (array) $instance, $defaults );
 			?>
             <p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:',
-						TLP_TEAM_SLUG ); ?></label>
+						"tlp-team" ); ?></label>
                 <input type="text" id="<?php echo $this->get_field_id( 'title' ); ?>"
                        name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>"
                        style="width:100%;"/></p>
 
             <p><label for="<?php echo $this->get_field_id( 'layout' ); ?>"><?php _e( 'Select a layout',
-						TLP_TEAM_SLUG ); ?></label>
+						"tlp-team" ); ?></label>
                 <select id="<?php echo $this->get_field_id( 'layout' ); ?>"
                         name="<?php echo $this->get_field_name( 'layout' ); ?>">
                     <option value="">Select one</option>
@@ -75,7 +75,7 @@ if ( ! class_exists( 'TLPTeamWidget' ) ):
 					?>
                 </select></p>
             <p><label for="<?php echo $this->get_field_id( 'col' ); ?>"><?php _e( 'Select a column',
-						TLP_TEAM_SLUG ); ?></label>
+						"tlp-team" ); ?></label>
                 <select id="<?php echo $this->get_field_id( 'col' ); ?>"
                         name="<?php echo $this->get_field_name( 'col' ); ?>">
                     <option value="">Select one</option>
@@ -89,7 +89,7 @@ if ( ! class_exists( 'TLPTeamWidget' ) ):
                 </select></p>
 
             <p><label for="<?php echo $this->get_field_id( 'orderby' ); ?>"><?php _e( 'Order by',
-						TLP_TEAM_SLUG ); ?></label>
+						"tlp-team" ); ?></label>
                 <select id="<?php echo $this->get_field_id( 'orderby' ); ?>"
                         name="<?php echo $this->get_field_name( 'orderby' ); ?>">
                     <option value="">Select one</option>
@@ -102,7 +102,7 @@ if ( ! class_exists( 'TLPTeamWidget' ) ):
 					?>
                 </select></p>
             <p><label for="<?php echo $this->get_field_id( 'order' ); ?>"><?php _e( 'Order by',
-						TLP_TEAM_SLUG ); ?></label>
+						"tlp-team" ); ?></label>
                 <select id="<?php echo $this->get_field_id( 'order' ); ?>"
                         name="<?php echo $this->get_field_name( 'order' ); ?>">
                     <option value="">Select one</option>
@@ -115,7 +115,7 @@ if ( ! class_exists( 'TLPTeamWidget' ) ):
 					?>
                 </select></p>
             <p><label for="<?php echo $this->get_field_id( 'member' ); ?>"><?php _e( 'Number of member to show:',
-						TLP_TEAM_SLUG ); ?></label>
+						"tlp-team" ); ?></label>
                 <input type="text" size="2" id="<?php echo $this->get_field_id( 'member' ); ?>"
                        name="<?php echo $this->get_field_name( 'member' ); ?>"
                        value="<?php echo $instance['member']; ?>"/></p>

@@ -1,6 +1,6 @@
 <?php
 
-class TLPteam
+class TLPTeam
 {
     public $options;
     private $sc_post_type;
@@ -228,10 +228,10 @@ class TLPteam
 }
 
 /**
- * @return TLPteam
+ * @return TLPTeam
  */
 function TLPTeam() {
-    return TLPteam::instance();
+    return TLPTeam::instance();
 }
 
 TLPTeam();
