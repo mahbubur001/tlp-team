@@ -215,6 +215,10 @@ Install and Activate
 
 == Changelog ==
 
+= 2.5.0 =
+* Add Shortcode layout preview
+* Update admin UI Design
+
 = 2.4.3 =
 * Compatibility with wordpress Latest version
 
