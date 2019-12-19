@@ -459,15 +459,15 @@ msgstr ""
 msgid "<strong>Tel:</strong>"
 msgstr ""
 
-#: ../lib/templates/single-team.php:34
+#: ../lib/templates/single-team.php:35
 msgid "<strong>Location:</strong>"
 msgstr ""
 
-#: ../lib/templates/single-team.php:36
+#: ../lib/templates/single-team.php:38
 msgid "<strong>Email:</strong>"
 msgstr ""
 
-#: ../lib/templates/single-team.php:38
+#: ../lib/templates/single-team.php:41
 msgid "<strong>URL:</strong>"
 msgstr ""
 
