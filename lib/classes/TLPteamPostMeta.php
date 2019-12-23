@@ -7,7 +7,7 @@ if ( ! class_exists( 'TLPteamPostMeta' ) ):
 	class TLPteamPostMeta {
 
 		function __construct() {
-			add_action( 'add_meta_boxes', array( $this, 'team_meta_boxs' ) );
+			add_action( 'add_meta_boxes', array( $this, 'team_meta_boxes' ) );
 			add_action( 'save_post', array( $this, 'save_team_meta_data' ), 10, 2 );
 			add_action( 'admin_print_scripts-post-new.php', array( $this, 'tpl_team_script' ), 11 );
 			add_action( 'admin_print_scripts-post.php', array( $this, 'tpl_team_script' ), 11 );
@@ -26,7 +26,7 @@ if ( ! class_exists( 'TLPteamPostMeta' ) ):
 			echo $html;
 		}
 
-		function team_meta_boxs() {
+		function team_meta_boxes() {
 			add_meta_box(
 				'tlp_team_meta',
 				__( 'Member Info', "tlp-team" ),
