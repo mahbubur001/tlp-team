@@ -523,7 +523,7 @@ msgstr ""
 msgid "Custom Css "
 msgstr ""
 
-#: ../lib/views/settings.php:101
+#: ../lib/views/settings.php:103
 msgid "Please use default customizer to add your css. This option is deprecated."
 msgstr ""
 

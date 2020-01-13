@@ -97,10 +97,10 @@
                     <tr>
                         <th scope="row"><label for="css"><?php esc_html_e('Custom Css ', "tlp-team"); ?></label></th>
                         <td>
-                            <div class="description"
-                                 style="color: red"><?php esc_html_e("Please use default customizer to add your css. This option is deprecated.", 'tlp-team'); ?></div>
                             <textarea name="custom_css" cols="40"
                                       rows="6"><?php echo(isset($settings['custom_css']) ? ($settings['custom_css'] ? $settings['custom_css'] : null) : null); ?></textarea>
+                            <p class="description"
+                               style="color: red"><?php esc_html_e("Please use default customizer to add your css. This option is deprecated.", 'tlp-team'); ?></p>
                         </td>
                     </tr>
 
