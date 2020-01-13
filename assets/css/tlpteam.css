@@ -647,6 +647,10 @@ body .tlp-team .team-member a {
     padding: 25px 0;
 }
 
+.tlp-single-container .tlp-member-feature-img img {
+    max-width: 100%;
+    height: auto;
+}
 
 /********************************* OLD pagination ************************/
 .tlp-team-container .tlp-pagination-wrap {
