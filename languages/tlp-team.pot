@@ -1,4 +1,4 @@
-# Copyright (C) 2019 Team
+# Copyright (C) 2020 Team
 # This file is distributed under the same license as the Team package.
 msgid ""
 msgstr ""
@@ -101,7 +101,7 @@ msgstr ""
 msgid "Disable"
 msgstr ""
 
-#: ../lib/classes/TLPTeamOptions.php:87, ../lib/views/settings.php:21
+#: ../lib/classes/TLPTeamOptions.php:87, ../lib/views/settings.php:22
 msgid "Image Size"
 msgstr ""
 
@@ -403,43 +403,43 @@ msgstr ""
 msgid "No ShortCode found in trash."
 msgstr ""
 
-#: ../lib/classes/TLPTeamSCMeta.php:102
+#: ../lib/classes/TLPTeamSCMeta.php:103
 msgid "Short Code Generator"
 msgstr ""
 
-#: ../lib/classes/TLPTeamSCMeta.php:109
+#: ../lib/classes/TLPTeamSCMeta.php:110
 msgid "Layout Preview"
 msgstr ""
 
-#: ../lib/classes/TLPTeamSCMeta.php:116
+#: ../lib/classes/TLPTeamSCMeta.php:117
 msgid "Pro Feature"
 msgstr ""
 
-#: ../lib/classes/TLPTeamSCMeta.php:160
+#: ../lib/classes/TLPTeamSCMeta.php:168
 msgid "Layout Settings"
 msgstr ""
 
-#: ../lib/classes/TLPTeamSCMeta.php:161
+#: ../lib/classes/TLPTeamSCMeta.php:169
 msgid "Filtering"
 msgstr ""
 
-#: ../lib/classes/TLPTeamSCMeta.php:162
+#: ../lib/classes/TLPTeamSCMeta.php:170
 msgid "Styling"
 msgstr ""
 
-#: ../lib/classes/TPLsettings.php:36
+#: ../lib/classes/TPLsettings.php:40
 msgid "Settings successfully updated"
 msgstr ""
 
-#: ../lib/classes/TPLsettings.php:41
-msgid "Security Error!!"
+#: ../lib/classes/TPLsettings.php:42
+msgid "Session Error!!"
 msgstr ""
 
-#: ../lib/classes/TPLsettings.php:63, ../lib/views/settings.php:4
+#: ../lib/classes/TPLsettings.php:68, ../lib/views/settings.php:3
 msgid "TLP Team Settings"
 msgstr ""
 
-#: ../lib/classes/TPLsettings.php:63
+#: ../lib/classes/TPLsettings.php:68
 msgid "Settings"
 msgstr ""
 
@@ -499,40 +499,36 @@ msgstr ""
 msgid "Short description color"
 msgstr ""
 
-#: ../lib/views/settings.php:8
+#: ../lib/views/settings.php:9
 msgid "General settings"
 msgstr ""
 
-#: ../lib/views/settings.php:13
+#: ../lib/views/settings.php:14
 msgid "Primary Color"
 msgstr ""
 
-#: ../lib/views/settings.php:63
+#: ../lib/views/settings.php:65
 msgid "Slug"
 msgstr ""
 
-#: ../lib/views/settings.php:68
+#: ../lib/views/settings.php:70
 msgid "Slug configuration"
 msgstr ""
 
-#: ../lib/views/settings.php:74
+#: ../lib/views/settings.php:76
 msgid "Link To Detail Page"
 msgstr ""
 
-#: ../lib/views/settings.php:96
+#: ../lib/views/settings.php:98
 msgid "Custom Css "
 msgstr ""
 
-#: ../lib/views/settings.php:106
+#: ../lib/views/settings.php:101
+msgid "Please use default customizer to add your css. This option is deprecated."
+msgstr ""
+
+#: ../lib/views/settings.php:110
 msgid "Save Changes"
-msgstr ""
-
-#: ../lib/views/settings.php:114
-msgid "Demo"
-msgstr ""
-
-#: ../lib/views/settings.php:117
-msgid "Documentation"
 msgstr ""
 
 #: ../lib/widgets/TLPTeamWidget.php:18
