@@ -215,7 +215,7 @@ Install and Activate
 
 == Changelog ==
 
-= 2.5.1 =
+= 2.5.2 =
 * Fix settings issue
 
 = 2.5.1 =
