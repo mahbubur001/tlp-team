@@ -142,7 +142,6 @@
             // Add Shortcode ID
             data = data + '&' + $.param({'sc_id': $('#post_ID').val() || 0});
             TlpTeamPreviewAjaxCall(null, 'tlpTeamPreviewAjaxCall', data, function (res) {
-                console.log(res);
                 if (!data.error) {
                     $("#tlp-team-preview-container").html(res.data);
                     initTlpTeam();
@@ -185,7 +184,7 @@
         if (arg && !action) data = arg;
         n = data.search("tlp_nonce");
         if (n < 0) {
-            data = data + "&tlp_nonce=" + tpl_nonce;
+            data = data + "&tlp_nonce=" + tlp_var.tlp_nonce;
         }
 
         $.ajax({
@@ -206,21 +205,19 @@
         e.preventDefault();
 
         var response = $('#response').hide(),
-            arg = $(e).serialize(),
+            arg = $(this).serialize(),
             bindElement = $('#tlpSaveButton');
         AjaxCall(bindElement, 'tlpTeamSettings', arg, function (data) {
-            console.log(data);
             if (data.error) {
                 response
-                    .removeClass('error')
-                    .show('slow')
-                    .text(data.msg);
+                    .addClass('error')
+                    .removeClass('success');
             } else {
                 response
-                    .addClass('error')
-                    .show('slow')
-                    .text(data.msg);
+                    .removeClass('error')
+                    .addClass('success');
             }
+            response.text(data.msg).show();
         });
 
         return false;

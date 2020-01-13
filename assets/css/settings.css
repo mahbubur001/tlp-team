@@ -541,6 +541,31 @@ ul#tlp-team-gallery li span.tlp_loading {
 
 
 /* settings */
+.rt-settings-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.rt-setting-content {
+    flex: 1;
+}
+
+.rt-pro-feature-content {
+    flex: 0 0 350px;
+
+}
+
+.rt-settings-container #response {
+    display: none;
+    padding: 10px 10px 10px 20px;
+    margin: 10px 0;
+}
+
+.rt-pro-feature-content .rt-update-pro-btn {
+    display: block;
+    width: 100%;
+}
+
 .rt-features-wrap {
     background-color: #5d3dfd;
     padding: 35px 40px;
@@ -820,6 +845,15 @@ ul#order-target li.placeholder {
     .rt-update-pro-btn-wrap .rt-update-pro-btn {
         font-size: 18px;
     }
+
+    .rt-settings-container {
+        flex-direction: column;
+    }
+
+    .rt-settings-container .rt-setting-content,
+    .rt-settings-container .rt-pro-feature-content {
+        flex: 1;
+    }
 }
 
 @media only screen and (max-width: 479px) {
@@ -836,7 +870,8 @@ ul#order-target li.placeholder {
         padding: 0;
         margin-bottom: 10px;
     }
-    .tlp-field-holder .tlp-field{
+
+    .tlp-field-holder .tlp-field {
         padding: 0;
     }
 }
