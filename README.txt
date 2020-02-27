@@ -23,7 +23,7 @@ Team allow you to create 5 different layouts Grid & Isotope. You can select layo
 
 Team Plugin shortcode generator have different option you can easily control which layout you want from 5 different layouts, primary color, image enable or disable option, detail page link option etc.
 
-[youtube https://www.youtube.com/watch?v=3gm2ipm7wes]
+[youtube https://www.youtube.com/watch?v=xwfF321c6Sc]
 
 From admin end you can easily add your team member(s). You can set primary color, image size and detail page (Yes/No) link. It has widget included with settings how many want to display. It has the following fields members name, position, image, short bios and detail bios and social links.
 
