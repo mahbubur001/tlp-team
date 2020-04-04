@@ -4,7 +4,7 @@
 * Plugin URI: http://demo.radiustheme.com/wordpress/plugins/tlp-team/
 * Description: Fully Responsive and Mobile Friendly Team member display plugin for wordpress with Grid and Isotope View.
 * Author: RadiusTheme
-* Version: 2.5.2
+* Version: 2.5.3
 * Author URI: www.radiustheme.com
 * Text Domain: tlp-team
 * License: MIT License

@@ -153,11 +153,11 @@ msgstr ""
 msgid "Order"
 msgstr ""
 
-#: ../lib/classes/TLPTeamOptions.php:204, ../lib/classes/TPLTeamShortCode.php:218
+#: ../lib/classes/TLPTeamOptions.php:204, ../lib/classes/TPLTeamShortCode.php:219
 msgid "Name"
 msgstr ""
 
-#: ../lib/classes/TLPTeamOptions.php:209, ../lib/classes/TLPteamPostTypeAdmin.php:110, ../lib/classes/TPLTeamShortCode.php:219
+#: ../lib/classes/TLPTeamOptions.php:209, ../lib/classes/TLPteamPostTypeAdmin.php:110, ../lib/classes/TPLTeamShortCode.php:220
 msgid "Designation"
 msgstr ""
 
@@ -185,7 +185,7 @@ msgstr ""
 msgid "Font size"
 msgstr ""
 
-#: ../lib/classes/TLPTeamOptions.php:263, ../lib/classes/TLPTeamOptions.php:273, ../lib/classes/TLPTeamOptions.php:282, ../lib/classes/TPLTeamShortCode.php:217
+#: ../lib/classes/TLPTeamOptions.php:263, ../lib/classes/TLPTeamOptions.php:273, ../lib/classes/TLPTeamOptions.php:282, ../lib/classes/TPLTeamShortCode.php:218
 msgid "Default"
 msgstr ""
 
