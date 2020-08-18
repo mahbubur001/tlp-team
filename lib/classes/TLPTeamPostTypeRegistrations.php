@@ -136,24 +136,11 @@ if ( ! class_exists( 'TLPTeamPostTypeRegistrations' ) ):
 			$styles['tlp-team']               = TLPTeam()->assetsUrl . 'css/tlpteam.css';
 
 			if ( is_admin() ) {
-				$scripts['tlp-select2'] = array(
-					'src'    => TLPTeam()->assetsUrl . "vendor/select2/select2.min.js",
-					'deps'   => array( 'jquery' ),
-					'footer' => false
-				);
-
 				$scripts['tlp-team-admin'] = array(
 					'src'    => TLPTeam()->assetsUrl . "js/settings.js",
 					'deps'   => array( 'jquery' ),
 					'footer' => true
 				);
-
-				$scripts['wp-color-picker-alpha'] = array(
-					'src'    => TLPTeam()->assetsUrl . "js/wp-color-picker-alpha.js",
-					'deps'   => array( 'wp-color-picker' ),
-					'footer' => true
-				);
-				$styles['tlp-select2']            = TLPTeam()->assetsUrl . 'vendor/select2/select2.min.css';
 				$styles['tlp-team-admin']         = TLPTeam()->assetsUrl . 'css/settings.css';
 			}
 			foreach ( $scripts as $handle => $script ) {

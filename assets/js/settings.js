@@ -2,13 +2,6 @@
     if ($('.tlp-color').length && $.fn.wpColorPicker) {
         $('.tlp-color').wpColorPicker();
     }
-    if ($("select.tlp-select").length && $.fn.select2) {
-        $("select.tlp-select").select2({
-            theme: "classic",
-            dropdownAutoWidth: true,
-            width: '100%'
-        });
-    }
     if ($("#tlp_team_sc_settings_meta .tlp-color").length && $.fn.wpColorPicker) {
         var cOptions = {
             defaultColor: false,

@@ -261,39 +261,39 @@ msgstr ""
 msgid "Descending"
 msgstr ""
 
-#: ../lib/classes/TLPteamPostMeta.php:32
+#: ../lib/classes/TLPteamPostMeta.php:33
 msgid "Member Info"
 msgstr ""
 
-#: ../lib/classes/TLPteamPostMeta.php:47
+#: ../lib/classes/TLPteamPostMeta.php:48
 msgid "Short Bio:"
 msgstr ""
 
-#: ../lib/classes/TLPteamPostMeta.php:52
+#: ../lib/classes/TLPteamPostMeta.php:53
 msgid "Add some short bio"
 msgstr ""
 
-#: ../lib/classes/TLPteamPostMeta.php:58
+#: ../lib/classes/TLPteamPostMeta.php:59
 msgid "Designations"
 msgstr ""
 
-#: ../lib/classes/TLPteamPostMeta.php:70, ../lib/classes/TLPteamPostTypeAdmin.php:111
+#: ../lib/classes/TLPteamPostMeta.php:71, ../lib/classes/TLPteamPostTypeAdmin.php:111
 msgid "Email"
 msgstr ""
 
-#: ../lib/classes/TLPteamPostMeta.php:81
+#: ../lib/classes/TLPteamPostMeta.php:82
 msgid "Personal Web URL"
 msgstr ""
 
-#: ../lib/classes/TLPteamPostMeta.php:92
+#: ../lib/classes/TLPteamPostMeta.php:93
 msgid "Telephone"
 msgstr ""
 
-#: ../lib/classes/TLPteamPostMeta.php:103, ../lib/classes/TLPteamPostTypeAdmin.php:112
+#: ../lib/classes/TLPteamPostMeta.php:104, ../lib/classes/TLPteamPostTypeAdmin.php:112
 msgid "Location"
 msgstr ""
 
-#: ../lib/classes/TLPteamPostMeta.php:112
+#: ../lib/classes/TLPteamPostMeta.php:113
 msgid "Social Links"
 msgstr ""
 
@@ -403,27 +403,27 @@ msgstr ""
 msgid "No ShortCode found in trash."
 msgstr ""
 
-#: ../lib/classes/TLPTeamSCMeta.php:103
+#: ../lib/classes/TLPTeamSCMeta.php:101
 msgid "Short Code Generator"
 msgstr ""
 
-#: ../lib/classes/TLPTeamSCMeta.php:110
+#: ../lib/classes/TLPTeamSCMeta.php:108
 msgid "Layout Preview"
 msgstr ""
 
-#: ../lib/classes/TLPTeamSCMeta.php:117
+#: ../lib/classes/TLPTeamSCMeta.php:115
 msgid "Pro Feature"
 msgstr ""
 
-#: ../lib/classes/TLPTeamSCMeta.php:168
+#: ../lib/classes/TLPTeamSCMeta.php:166
 msgid "Layout Settings"
 msgstr ""
 
-#: ../lib/classes/TLPTeamSCMeta.php:169
+#: ../lib/classes/TLPTeamSCMeta.php:167
 msgid "Filtering"
 msgstr ""
 
-#: ../lib/classes/TLPTeamSCMeta.php:170
+#: ../lib/classes/TLPTeamSCMeta.php:168
 msgid "Styling"
 msgstr ""
 

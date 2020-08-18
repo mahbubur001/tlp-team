@@ -645,8 +645,7 @@ body .rt-admin-btn:hover {
 /* End feature settings */
 
 /* metabox style */
-#tlp_team_sc_settings_meta h2.hndle,
-#tlp_team_sc_preview_meta h2.hndle {
+#tlp_team_sc_settings_meta .postbox-header {
     font-size: 18px;
     color: #000000;
     background-color: #ffffff;
@@ -661,8 +660,7 @@ body .rt-admin-btn:hover {
     border: 0;
 }
 
-#rt_plugin_team_sc_pro_information button.handlediv,
-#rt_plugin_team_sc_pro_information h2.hndle {
+#rt_plugin_team_sc_pro_information .postbox-header {
     display: none;
 }
 
@@ -774,10 +772,6 @@ div#settings-tabs {
 
 .tlp-checkbox-list label input[type=checkbox] {
     margin-right: 5px;
-}
-
-.select2-results__option[aria-selected=true] {
-    background: #f3f3f3;
 }
 
 /* sorting */

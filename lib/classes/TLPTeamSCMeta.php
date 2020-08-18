@@ -69,10 +69,9 @@ if (!class_exists('TLPTeamSCMeta')):
             // scripts
             wp_enqueue_script(array(
                 'jquery',
-                'wp-color-picker-alpha',
+                'wp-color-picker',
                 'tlp-isotope',
                 'tlp-owl-carousel',
-                TLPTeam()->getSelect2JsId(),
                 'tlp-team',
                 'tlp-team-admin',
             ));
@@ -80,7 +79,6 @@ if (!class_exists('TLPTeamSCMeta')):
             // styles
             wp_enqueue_style(array(
                 'wp-color-picker',
-                'tlp-select2',
                 'tlp-owl-carousel',
                 'tlp-owl-carousel-theme',
                 'tlp-fontawsome',

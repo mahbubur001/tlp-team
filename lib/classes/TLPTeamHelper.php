@@ -353,24 +353,6 @@ if ( ! class_exists( 'TLPTeamHelper' ) ) :
 			return metadata_exists( $type, $post_id, $meta_key );
 		}
 
-
-		/**
-		 * @return string
-		 * Remove select2Js confection
-		 */
-		function getSelect2JsId() {
-			$select2Id = 'tlp-select2';
-			if ( class_exists( 'WPSEO_Admin_Asset_Manager' ) && class_exists( 'Avada' ) ) {
-				$select2Id = 'yoast-seo-select2';
-			} elseif ( class_exists( 'WPSEO_Admin_Asset_Manager' ) ) {
-				$select2Id = 'yoast-seo-select2';
-			} elseif ( class_exists( 'Avada' ) ) {
-				$select2Id = 'select2-avada-js';
-			}
-
-			return $select2Id;
-		}
-
 		function getTTPShortCodeList() {
 			$scList = array();
 			$scQ    = get_posts( array(
