@@ -23,10 +23,11 @@
   "dependencies": {},
   "devDependencies": {
     "cli-color": "^1.4.0",
+    "dot-prop": "^5.2.0",
     "emojic": "^1.1.14",
     "fs-extra": "^7.0.0",
     "laravel-mix": "^5.0.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.14.1",
     "sass-loader": "^8.0.0",
     "wp-pot": "^1.6.4"
   }
