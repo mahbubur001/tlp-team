@@ -234,7 +234,7 @@ if (!class_exists('TPLTeamShortCode')):
                             if (!$arg['imgSrc']) {
                                 $arg['content_area'] = "rt-col-md-12";
                             }
-                            $arg['sLink'] = unserialize(get_post_meta(get_the_ID(), 'social', true));
+                            $arg['sLink'] = maybe_unserialize(get_post_meta(get_the_ID(), 'social', true));
                             $html .= TLPTeam()->render('layouts/' . $layout, $arg, true);
 
                         endwhile;
