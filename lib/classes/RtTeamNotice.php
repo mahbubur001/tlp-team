@@ -32,7 +32,7 @@ if ( ! class_exists( 'RtTeamNotice' ) ):
 				?>
                 <div class="notice notice-info is-dismissible" data-rtteamdismissable="rtteam_bf_2020"
                      style="display:grid;grid-template-columns: 100px auto;padding-top: 25px; padding-bottom: 22px;">
-                    <img alt="Smart Slider 3"
+                    <img alt="<?php echo esc_attr( $plugin_name ) ?>"
                          src="<?php echo TLPTeam()->assetsUrl . 'images/notice.png'; ?>" width="74px"
                          height="74px" style="grid-row: 1 / 4; align-self: center;justify-self: center"/>
                     <h3 style="margin:0;"><?php echo sprintf( '%s Black Friday Deal!!', $plugin_name ) ?></h3>
