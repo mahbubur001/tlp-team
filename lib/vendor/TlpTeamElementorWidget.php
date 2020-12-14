@@ -23,7 +23,7 @@ class TlpTeamElementorWidget extends \Elementor\Widget_Base
         $this->start_controls_section(
             'setting_section',
             [
-                'label' => __('Settings', 'tlp-portfolio'),
+                'label' => __('Settings', 'tlp-team'),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -33,7 +33,7 @@ class TlpTeamElementorWidget extends \Elementor\Widget_Base
             array(
                 'type'    => \Elementor\Controls_Manager::SELECT2,
                 'id'      => 'layout',
-                'label'   => __('Layout', 'tlp-portfolio'),
+                'label'   => __('Layout', 'tlp-team'),
                 'options' => TLPTeam()->scLayouts()
             )
         );
@@ -42,7 +42,7 @@ class TlpTeamElementorWidget extends \Elementor\Widget_Base
             array(
                 'type'    => \Elementor\Controls_Manager::SELECT2,
                 'id'      => 'col',
-                'label'   => __('Column / Number to Display at slider', 'tlp-portfolio'),
+                'label'   => __('Column / Number to Display at slider', 'tlp-team'),
                 'options' => TLPTeam()->scColumns()
             )
         );
@@ -51,7 +51,7 @@ class TlpTeamElementorWidget extends \Elementor\Widget_Base
             array(
                 'type'    => \Elementor\Controls_Manager::SELECT2,
                 'id'      => 'orderby',
-                'label'   => __('Order By', 'tlp-portfolio'),
+                'label'   => __('Order By', 'tlp-team'),
                 'options' => TLPTeam()->scOrderBy()
             )
         );
@@ -60,7 +60,7 @@ class TlpTeamElementorWidget extends \Elementor\Widget_Base
             array(
                 'type'    => \Elementor\Controls_Manager::SELECT2,
                 'id'      => 'order',
-                'label'   => __('Order', 'tlp-portfolio'),
+                'label'   => __('Order', 'tlp-team'),
                 'options' => TLPTeam()->scOrder()
             )
         );
@@ -87,7 +87,7 @@ class TlpTeamElementorWidget extends \Elementor\Widget_Base
         $this->add_control(
             'class',
             array(
-                'label' => __('Wrapper Class', 'tlp-portfolio'),
+                'label' => __('Wrapper Class', 'tlp-team'),
                 'type'  => \Elementor\Controls_Manager::TEXT,
             )
         );
@@ -97,14 +97,14 @@ class TlpTeamElementorWidget extends \Elementor\Widget_Base
         $this->start_controls_section(
             'style_section',
             [
-                'label' => __('Style', 'tlp-portfolio'),
+                'label' => __('Style', 'tlp-team'),
                 'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
         $this->add_control(
             'name-color',
             array(
-                'label'     => __('Name color', 'tlp-portfolio'),
+                'label'     => __('Name color', 'tlp-team'),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'scheme'    => array(
                     'type'  => \Elementor\Scheme_Color::get_type(),

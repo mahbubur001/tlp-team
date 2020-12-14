@@ -37,7 +37,7 @@ msgstr ""
 msgid "Last"
 msgstr ""
 
-#: ../lib/classes/TLPTeamOptions.php:9
+#: ../lib/classes/TLPTeamOptions.php:9, ../lib/vendor/TlpTeamElementorWidget.php:36
 msgid "Layout"
 msgstr ""
 
@@ -145,11 +145,11 @@ msgstr ""
 msgid "The number of posts to show. Set empty to show all found posts."
 msgstr ""
 
-#: ../lib/classes/TLPTeamOptions.php:141
+#: ../lib/classes/TLPTeamOptions.php:141, ../lib/vendor/TlpTeamElementorWidget.php:54
 msgid "Order By"
 msgstr ""
 
-#: ../lib/classes/TLPTeamOptions.php:148
+#: ../lib/classes/TLPTeamOptions.php:148, ../lib/vendor/TlpTeamElementorWidget.php:63
 msgid "Order"
 msgstr ""
 
@@ -439,7 +439,7 @@ msgstr ""
 msgid "TLP Team Settings"
 msgstr ""
 
-#: ../lib/classes/TPLsettings.php:68
+#: ../lib/classes/TPLsettings.php:68, ../lib/vendor/TlpTeamElementorWidget.php:26
 msgid "Settings"
 msgstr ""
 
@@ -475,6 +475,10 @@ msgstr ""
 msgid "Tlp Team"
 msgstr ""
 
+#: ../lib/vendor/TlpTeamElementorWidget.php:45
+msgid "Column / Number to Display at slider"
+msgstr ""
+
 #: ../lib/vendor/TlpTeamElementorWidget.php:72
 msgid "Include Member Only"
 msgstr ""
@@ -489,6 +493,18 @@ msgstr ""
 
 #: ../lib/vendor/TlpTeamElementorWidget.php:84
 msgid "Leave it blank to display all. (Only number is allowed)"
+msgstr ""
+
+#: ../lib/vendor/TlpTeamElementorWidget.php:90
+msgid "Wrapper Class"
+msgstr ""
+
+#: ../lib/vendor/TlpTeamElementorWidget.php:100
+msgid "Style"
+msgstr ""
+
+#: ../lib/vendor/TlpTeamElementorWidget.php:107
+msgid "Name color"
 msgstr ""
 
 #: ../lib/vendor/TlpTeamElementorWidget.php:121
