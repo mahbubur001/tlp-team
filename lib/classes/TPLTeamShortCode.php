@@ -230,8 +230,8 @@ if (!class_exists('TPLTeamShortCode')):
                             $short_bio = get_post_meta($pID, 'short_bio', true);
                             $arg['short_bio'] = TLPTeam()->get_ttp_short_description($short_bio, $character_limit);
                             $arg['designation'] = get_post_meta(get_the_ID(), 'designation', true);
-                            $arg['imgSrc'] = !$fImg && has_post_thumbnail() ? TLPTeam()->getFeatureImageSrc($pID, $fImgSize, $customImgSize) : null;
-                            if (!$arg['imgSrc']) {
+                            $arg['imgHtml'] = !$fImg && has_post_thumbnail() ? TLPTeam()->getFeatureImageHtml($pID, $fImgSize, $customImgSize) : null;
+                            if (!$arg['imgHtml']) {
                                 $arg['content_area'] = "rt-col-md-12";
                             }
                             $arg['sLink'] = maybe_unserialize(get_post_meta(get_the_ID(), 'social', true));
@@ -291,16 +291,16 @@ if (!class_exists('TPLTeamShortCode')):
             }
         }
 
-        function layoutOne($title, $pLink, $imgSrc, $designation, $short_bio, $sLink) {
+        function layoutOne($title, $pLink, $imgHtml, $designation, $short_bio, $sLink) {
 
             $settings = get_option(TLPTeam()->options['settings']);
             $html = null;
             $html .= '<div class="single-team-area">';
-            if ($imgSrc) {
+            if ($imgHtml) {
                 if ($settings['link_detail_page'] == 'no') {
-                    $html .= '<img class="img-responsive" src="' . $imgSrc . '" alt="' . $title . '"/>';
+                    $html .= $imgHtml;
                 } else {
-                    $html .= '<a title="' . $title . '" href="' . $pLink . '"><img class="img-responsive" src="' . $imgSrc . '" alt="' . $title . '"/></a>';
+                    $html .= '<a title="' . $title . '" href="' . $pLink . '">'.$imgHtml.'</a>';
                 }
             }
             $html .= '<div class="tlp-content">';
@@ -330,17 +330,17 @@ if (!class_exists('TPLTeamShortCode')):
             return $html;
         }
 
-        function layoutTwo($title, $pLink, $imgSrc, $designation, $short_bio, $sLink, $image_area, $content_area) {
+        function layoutTwo($title, $pLink, $imgHtml, $designation, $short_bio, $sLink, $image_area, $content_area) {
 
             $settings = get_option(TLPTeam()->options['settings']);
             $html = null;
             $html .= '<div class="single-team-area tlp-row">';
-            if ($imgSrc) {
+            if ($imgHtml) {
                 $html .= '<div class="' . $image_area . '">';
                 if ($settings['link_detail_page'] == 'no') {
-                    $html .= '<img class="img-responsive" src="' . $imgSrc . '" alt="' . $title . '"/>';
+                    $html .= $imgHtml;
                 } else {
-                    $html .= '<a title="' . $title . '" href="' . $pLink . '"><img class="img-responsive" src="' . $imgSrc . '" alt="' . $title . '"/></a>';
+                    $html .= '<a title="' . $title . '" href="' . $pLink . '">'.$imgHtml.'</a>';
                 }
                 $html .= '</div>';
             }
@@ -369,17 +369,17 @@ if (!class_exists('TPLTeamShortCode')):
             return $html;
         }
 
-        function layoutThree($title, $pLink, $imgSrc, $designation, $short_bio, $sLink, $image_area, $content_area) {
+        function layoutThree($title, $pLink, $imgHtml, $designation, $short_bio, $sLink, $image_area, $content_area) {
 
             $settings = get_option(TLPTeam()->options['settings']);
             $html = null;
             $html .= '<div class="single-team-area tlp-row">';
-            if ($imgSrc) {
+            if ($imgHtml) {
                 $html .= '<div class="' . $image_area . ' round-img">';
                 if ($settings['link_detail_page'] == 'no') {
-                    $html .= '<img class="img-responsive" src="' . $imgSrc . '" alt="' . $title . '"/>';
+                    $html .= $imgHtml;
                 } else {
-                    $html .= '<a title="' . $title . '" href="' . $pLink . '"><img class="img-responsive" src="' . $imgSrc . '" alt="' . $title . '"/></a>';
+                    $html .= '<a title="' . $title . '" href="' . $pLink . '">'.$imgHtml.'</a>';
                 }
                 $html .= '</div>';
             }
@@ -407,17 +407,17 @@ if (!class_exists('TPLTeamShortCode')):
             return $html;
         }
 
-        function layoutFour($title, $pLink, $imgSrc, $designation, $short_bio, $sLink, $image_area, $content_area) {
+        function layoutFour($title, $pLink, $imgHtml, $designation, $short_bio, $sLink, $image_area, $content_area) {
 
             $settings = get_option(TLPTeam()->options['settings']);
             $html = null;
             $html .= '<div class="single-team-area">';
-            if ($imgSrc) {
+            if ($imgHtml) {
                 $html .= '<div class="round-img">';
                 if ($settings['link_detail_page'] == 'no') {
-                    $html .= '<img class="img-responsive" src="' . $imgSrc . '" alt="' . $title . '"/>';
+                    $html .= $imgHtml;
                 } else {
-                    $html .= '<a title="' . $title . '" href="' . $pLink . '"><img class="img-responsive" src="' . $imgSrc . '" alt="' . $title . '"/></a>';
+                    $html .= '<a title="' . $title . '" href="' . $pLink . '">'.$imgHtml.'</a>';
                 }
                 $html .= '</div>';
             }
@@ -445,17 +445,17 @@ if (!class_exists('TPLTeamShortCode')):
             return $html;
         }
 
-        function layoutCarousel($title, $pLink, $imgSrc, $designation, $short_bio, $sLink, $image_area, $content_area) {
+        function layoutCarousel($title, $pLink, $imgHtml, $designation, $short_bio, $sLink, $image_area, $content_area) {
 
             $settings = get_option(TLPTeam()->options['settings']);
             $html = null;
             $html .= '<div class="single-team-area">';
-            if ($imgSrc) {
+            if ($imgHtml) {
                 $html .= '<div class="round-img">';
                 if ($settings['link_detail_page'] == 'no') {
-                    $html .= '<img class="img-responsive" src="' . $imgSrc . '" alt="' . $title . '"/>';
+                    $html .= $imgHtml;
                 } else {
-                    $html .= '<a title="' . $title . '" href="' . $pLink . '"><img class="img-responsive" src="' . $imgSrc . '" alt="' . $title . '"/></a>';
+                    $html .= '<a title="' . $title . '" href="' . $pLink . '">'.$imgHtml.'</a>';
                 }
                 $html .= '</div>';
             }
@@ -483,16 +483,16 @@ if (!class_exists('TPLTeamShortCode')):
             return $html;
         }
 
-        function layoutIsotope($title, $pLink, $imgSrc, $designation, $grid) {
+        function layoutIsotope($title, $pLink, $imgHtml, $designation, $grid) {
 
             $settings = get_option(TLPTeam()->options['settings']);
             $html = null;
             $html .= '<div class="single-team-area">';
-            if ($imgSrc) {
+            if ($imgHtml) {
                 if ($settings['link_detail_page'] == 'no') {
-                    $html .= '<img class="img-responsive" src="' . $imgSrc . '" alt="' . $title . '"/>';
+                    $html .= $imgHtml;
                 } else {
-                    $html .= '<a title="' . $title . '" href="' . $pLink . '"><img class="img-responsive" src="' . $imgSrc . '" alt="' . $title . '"/></a>';
+                    $html .= '<a title="' . $title . '" href="' . $pLink . '">'.$imgHtml.'</a>';
                 }
             }
             $html .= '<div class="tlp-content">';
@@ -742,11 +742,8 @@ if (!class_exists('TPLTeamShortCode')):
                     $short_bio = get_post_meta(get_the_ID(), 'short_bio', true);
                     $designation = get_post_meta(get_the_ID(), 'designation', true);
 
-                    if (has_post_thumbnail()) {
-                        $imgSrc = TLPTeam()->getFeatureImageSrc($pID, $fImgSize, $customImgSize);
-                    } else {
-                        $imgSrc = TLPTeam()->assetsUrl . 'images/demo.jpg';
-                    }
+                    $imgHtml = TLPTeam()->getFeatureImageHtml($pID, $fImgSize, $customImgSize);
+
 
                     if ($atts['col'] == 2) {
                         $image_area = "tlp-col-md-5 tlp-col-sm-6 tlp-col-xs-12 ";
@@ -757,7 +754,7 @@ if (!class_exists('TPLTeamShortCode')):
                     }
                     if (!$atts['image']) {
                         $content_area = "tlp-col-md-12";
-                        $imgSrc = null;
+                        $imgHtml = null;
                     }
 
                     $sLink = unserialize(get_post_meta(get_the_ID(), 'social', true));
@@ -765,30 +762,30 @@ if (!class_exists('TPLTeamShortCode')):
 //						$html  .= TLPTeam()->render( 'layouts/' . $layout, $arg, true );
                     switch ($atts['layout']) {
                         case 1:
-                            $html .= $this->layoutOne($title, $pLink, $imgSrc, $designation, $short_bio, $sLink);
+                            $html .= $this->layoutOne($title, $pLink, $imgHtml, $designation, $short_bio, $sLink);
                             break;
 
                         case 2:
-                            $html .= $this->layoutTwo($title, $pLink, $imgSrc, $designation, $short_bio, $sLink,
+                            $html .= $this->layoutTwo($title, $pLink, $imgHtml, $designation, $short_bio, $sLink,
                                 $image_area, $content_area);
                             break;
 
                         case 3:
-                            $html .= $this->layoutThree($title, $pLink, $imgSrc, $designation, $short_bio, $sLink,
+                            $html .= $this->layoutThree($title, $pLink, $imgHtml, $designation, $short_bio, $sLink,
                                 $image_area, $content_area);
                             break;
 
                         case 4:
-                            $html .= $this->layoutFour($title, $pLink, $imgSrc, $designation, $short_bio, $sLink,
+                            $html .= $this->layoutFour($title, $pLink, $imgHtml, $designation, $short_bio, $sLink,
                                 $image_area, $content_area);
                             break;
 
                         case 'isotope':
-                            $html .= $this->layoutIsotope($title, $pLink, $imgSrc, $designation, $grid);
+                            $html .= $this->layoutIsotope($title, $pLink, $imgHtml, $designation, $grid);
                             break;
 
                         case 'carousel':
-                            $html .= $this->layoutCarousel($title, $pLink, $imgSrc, $designation, $short_bio, $sLink,
+                            $html .= $this->layoutCarousel($title, $pLink, $imgHtml, $designation, $short_bio, $sLink,
                                 $image_area, $content_area);
                             break;
 

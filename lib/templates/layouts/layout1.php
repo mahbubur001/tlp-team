@@ -1,10 +1,10 @@
 <?php
 $image = $inner_title = null;
-if($imgSrc) {
+if($imgHtml) {
     if ($disable_detail_page_link) {
-        $image = '<img class="img-responsive" src="' . $imgSrc . '" alt="' . $title . '"/>';
+        $image = $imgHtml;
     } else {
-        $image = '<a title="' . $title . '" href="' . $pLink . '"><img class="img-responsive" src="' . $imgSrc . '" alt="' . $title . '"/></a>';
+        $image = '<a title="' . $title . '" href="' . $pLink . '">'.$imgHtml.'</a>';
     }
 }
 if ($disable_detail_page_link) {
