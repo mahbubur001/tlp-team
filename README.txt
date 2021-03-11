@@ -215,6 +215,11 @@ Install and Activate
 
 == Changelog ==
 
+= 2.6.0 =
+* Add image size property
+* Add WordPress 5.7 support
+* Add dynamic css for ShortCode
+
 = 2.5.5.2 =
 * Add WordPress 5.6 support
 
