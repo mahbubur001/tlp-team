@@ -26,20 +26,17 @@ if (!class_exists('TPLfrontEnd')) :
 
         function tlp_front_end() {
             // scripts
-            wp_enqueue_script(array(
-                'jquery',
-                'tlp-isotope',
-                'tlp-owl-carousel',
-                'tlp-team'
-            ));
+            wp_enqueue_script('jquery');
+            wp_enqueue_script('tlp-isotope');
+            wp_enqueue_script('tlp-owl-carousel');
+            wp_enqueue_script('tlp-team');
 
             // styles
-            wp_enqueue_style(array(
-                'tlp-owl-carousel',
-                'tlp-owl-carousel-theme',
-                'tlp-fontawsome',
-                'tlp-team'
-            ));
+            wp_enqueue_style('tlp-owl-carousel');
+            wp_enqueue_style('tlp-owl-carousel-theme');
+            wp_enqueue_style('tlp-fontawsome');
+            wp_enqueue_style('tlp-team');
+            wp_enqueue_style('rt-team-sc');
         }
 
     }

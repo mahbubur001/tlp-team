@@ -44,7 +44,7 @@ if (!class_exists('TPLTeamShortCode')):
                         $allCol = isset($scMeta['ttp_column']) && !empty($scMeta['ttp_column']) ? $scMeta['ttp_column'] : array();
                         /* LIMIT */
                         $query_args['posts_per_page'] = $limit = ((empty($scMeta['ttp_limit']) || $scMeta['ttp_limit'] === '-1') ? 10000000 : absint($scMeta['ttp_limit']));
-                        $pagination = !empty($scMeta['ttp_pagination']) ? true : false;
+                        $pagination = !empty($scMeta['ttp_pagination']);
                         if ($pagination) {
                             $query_args['posts_per_page'] = $posts_per_page = isset($scMeta['ttp_posts_per_page']) ? absint($scMeta['ttp_posts_per_page']) : $limit;
                         } else {
@@ -54,7 +54,7 @@ if (!class_exists('TPLTeamShortCode')):
                         $order_by = isset($scMeta['order_by']) ? $scMeta['order_by'] : null;
                         $order = isset($scMeta['order']) ? $scMeta['order'] : null;
 
-                        $fImg = isset($scMeta['ttp_image']) && !empty($scMeta['ttp_image']) ? true : false;
+                        $fImg = isset($scMeta['ttp_image']) && !empty($scMeta['ttp_image']);
                         $parent_class = isset($scMeta['ttp_parent_class']) && !empty($scMeta['ttp_parent_class']) ? sanitize_text_field($scMeta['ttp_parent_class']) : '';
                         $fImgSize = isset($scMeta['ttp_image_size']) ? $scMeta['ttp_image_size'] : "medium";
                         $character_limit = isset($scMeta['character_limit']) && !empty($scMeta['character_limit']) ? absint($scMeta['character_limit']) : 0;
@@ -70,7 +70,7 @@ if (!class_exists('TPLTeamShortCode')):
 
                         /* LIMIT */
                         $query_args['posts_per_page'] = $limit = ((empty($scMeta['ttp_limit'][0]) || $scMeta['ttp_limit'][0] === '-1') ? 10000000 : absint($scMeta['ttp_limit'][0]));
-                        $pagination = !empty($scMeta['ttp_pagination'][0]) ? true : false;
+                        $pagination = !empty($scMeta['ttp_pagination'][0]);
 
                         if ($pagination) {
                             $query_args['posts_per_page'] = $posts_per_page = isset($scMeta['ttp_posts_per_page'][0]) ? absint($scMeta['ttp_posts_per_page'][0]) : $limit;
@@ -81,7 +81,7 @@ if (!class_exists('TPLTeamShortCode')):
                         $order_by = isset($scMeta['order_by'][0]) ? $scMeta['order_by'][0] : null;
                         $order = isset($scMeta['order'][0]) ? $scMeta['order'][0] : null;
 
-                        $fImg = !empty($scMeta['ttp_image'][0]) ? true : false;
+                        $fImg = !empty($scMeta['ttp_image'][0]);
                         $fImgSize = isset($scMeta['ttp_image_size'][0]) ? $scMeta['ttp_image_size'][0] : "medium";
                         $character_limit = isset($scMeta['character_limit'][0]) && !empty($scMeta['character_limit'][0]) ? absint($scMeta['character_limit'][0]) : 0;
                         $customImgSize = !empty($scMeta['ttp_custom_image_size'][0]) ? unserialize($scMeta['ttp_custom_image_size'][0]) : array();
@@ -169,6 +169,7 @@ if (!class_exists('TPLTeamShortCode')):
                     if ($teamQuery->have_posts()) {
                         $class = array(
                             'tlp-team-container',
+                            'rt-team-container-' . $scID,
                             'tlp-team'
                         );
                         if (!empty($atts['class'])) {
@@ -178,7 +179,9 @@ if (!class_exists('TPLTeamShortCode')):
                             $class[] = $parent_class;
                         }
                         $class = implode(' ', $class);
-                        $html .= $this->layoutStyle($layoutID, $scMeta, $preview);
+                        if ($preview) {
+                            $html .= $this->layoutStyle($scMeta);
+                        }
                         $html .= sprintf('<div class="%s" id="%s" %s>', $class, $layoutID, $containerDataAttr); // Start Wrapper
                         $inner_class = $layout;
                         $carouselOptions = '';
@@ -230,7 +233,7 @@ if (!class_exists('TPLTeamShortCode')):
                             $short_bio = get_post_meta($pID, 'short_bio', true);
                             $arg['short_bio'] = TLPTeam()->get_ttp_short_description($short_bio, $character_limit);
                             $arg['designation'] = get_post_meta(get_the_ID(), 'designation', true);
-                            $arg['imgHtml'] = !$fImg && has_post_thumbnail() ? TLPTeam()->getFeatureImageHtml($pID, $fImgSize, $customImgSize) : null;
+                            $arg['imgHtml'] = !$fImg ? TLPTeam()->getFeatureImageHtml($pID, $fImgSize, $customImgSize) : null;
                             if (!$arg['imgHtml']) {
                                 $arg['content_area'] = "rt-col-md-12";
                             }
@@ -300,7 +303,7 @@ if (!class_exists('TPLTeamShortCode')):
                 if ($settings['link_detail_page'] == 'no') {
                     $html .= $imgHtml;
                 } else {
-                    $html .= '<a title="' . $title . '" href="' . $pLink . '">'.$imgHtml.'</a>';
+                    $html .= '<a title="' . $title . '" href="' . $pLink . '">' . $imgHtml . '</a>';
                 }
             }
             $html .= '<div class="tlp-content">';
@@ -340,7 +343,7 @@ if (!class_exists('TPLTeamShortCode')):
                 if ($settings['link_detail_page'] == 'no') {
                     $html .= $imgHtml;
                 } else {
-                    $html .= '<a title="' . $title . '" href="' . $pLink . '">'.$imgHtml.'</a>';
+                    $html .= '<a title="' . $title . '" href="' . $pLink . '">' . $imgHtml . '</a>';
                 }
                 $html .= '</div>';
             }
@@ -379,7 +382,7 @@ if (!class_exists('TPLTeamShortCode')):
                 if ($settings['link_detail_page'] == 'no') {
                     $html .= $imgHtml;
                 } else {
-                    $html .= '<a title="' . $title . '" href="' . $pLink . '">'.$imgHtml.'</a>';
+                    $html .= '<a title="' . $title . '" href="' . $pLink . '">' . $imgHtml . '</a>';
                 }
                 $html .= '</div>';
             }
@@ -417,7 +420,7 @@ if (!class_exists('TPLTeamShortCode')):
                 if ($settings['link_detail_page'] == 'no') {
                     $html .= $imgHtml;
                 } else {
-                    $html .= '<a title="' . $title . '" href="' . $pLink . '">'.$imgHtml.'</a>';
+                    $html .= '<a title="' . $title . '" href="' . $pLink . '">' . $imgHtml . '</a>';
                 }
                 $html .= '</div>';
             }
@@ -455,7 +458,7 @@ if (!class_exists('TPLTeamShortCode')):
                 if ($settings['link_detail_page'] == 'no') {
                     $html .= $imgHtml;
                 } else {
-                    $html .= '<a title="' . $title . '" href="' . $pLink . '">'.$imgHtml.'</a>';
+                    $html .= '<a title="' . $title . '" href="' . $pLink . '">' . $imgHtml . '</a>';
                 }
                 $html .= '</div>';
             }
@@ -492,7 +495,7 @@ if (!class_exists('TPLTeamShortCode')):
                 if ($settings['link_detail_page'] == 'no') {
                     $html .= $imgHtml;
                 } else {
-                    $html .= '<a title="' . $title . '" href="' . $pLink . '">'.$imgHtml.'</a>';
+                    $html .= '<a title="' . $title . '" href="' . $pLink . '">' . $imgHtml . '</a>';
                 }
             }
             $html .= '<div class="tlp-content">';
@@ -508,153 +511,6 @@ if (!class_exists('TPLTeamShortCode')):
             $html .= '</div>';
 
             return $html;
-        }
-
-        private function layoutStyle($layoutID, $scMeta, $preview = false, $old = false) {
-            $css = null;
-            if ($old) {
-                $name = isset($scMeta['name-color']) && !empty($scMeta['name-color']) ? $scMeta['name-color'] : null;
-                $designation = isset($scMeta['designation-color']) && !empty($scMeta['designation-color']) ? $scMeta['designation-color'] : null;
-                $sd = isset($scMeta['sd-color']) && !empty($scMeta['sd-color']) ? $scMeta['sd-color'] : null;
-                if ($name) {
-                    $css .= "#{$layoutID} .single-team-area h3,
-							#{$layoutID} .single-team-area h3 a{ color: {$name};}";
-                }
-                if ($designation) {
-                    $css .= "#{$layoutID} .single-team-area .designation{ color: {$designation};}";
-                }
-                if ($sd) {
-                    $css .= "#{$layoutID} .single-team-area .short-bio{ color: {$sd};}";
-                }
-
-            } else {
-
-                // Variable
-                if ($preview) {
-                    $primaryColor = isset($scMeta['primary_color']) && !empty($scMeta['primary_color']) ? $scMeta['primary_color'] : null;
-                    $button = isset($scMeta['ttp_button_style']) && !empty($scMeta['ttp_button_style']) ? $scMeta['ttp_button_style'] : null;
-                    $name = isset($scMeta['name']) && !empty($scMeta['name']) ? $scMeta['name'] : null;
-                    $designation = isset($scMeta['designation']) && !empty($scMeta['designation']) ? $scMeta['designation'] : null;
-                    $short_bio = isset($scMeta['short_bio']) && !empty($scMeta['short_bio']) ? $scMeta['short_bio'] : null;
-                } else {
-
-                    $primaryColor = isset($scMeta['primary_color'][0]) && !empty($scMeta['primary_color'][0]) ? $scMeta['primary_color'][0] : null;
-                    $button = isset($scMeta['ttp_button_style'][0]) && !empty($scMeta['ttp_button_style'][0]) ? unserialize($scMeta['ttp_button_style'][0]) : null;
-                    $name = isset($scMeta['name'][0]) && !empty($scMeta['name'][0]) ? unserialize($scMeta['name'][0]) : null;
-                    $designation = isset($scMeta['designation'][0]) && !empty($scMeta['designation'][0]) ? unserialize($scMeta['designation'][0]) : null;
-                    $short_bio = isset($scMeta['short_bio'][0]) && !empty($scMeta['short_bio'][0]) ? unserialize($scMeta['short_bio'][0]) : null;
-                }
-
-                if ($primaryColor) {
-                    $css .= "#{$layoutID} .tlp-content, 
-						#{$layoutID} .layout1 .tlp-content{background:{$primaryColor };}";
-                    $css .= "#{$layoutID} .short-desc,
-							#{$layoutID} .tlp-team-isotope .tlp-content, 
-							#{$layoutID} .tpl-social a, 
-							#{$layoutID} .tpl-social li a.fa{background: $primaryColor;}";
-                }
-
-                /* button */
-                if (!empty($button)) {
-                    if (isset($button['bg']) && !empty($button['bg'])) {
-                        $css .= "#{$layoutID} .tlp-pagination-wrap .tlp-pagination > li > a, 
-							#{$layoutID} .tlp-pagination-wrap .tlp-pagination > li > span,
-							#{$layoutID} .tlp-isotope-buttons.button-group button,
-							#{$layoutID} .owl-theme .owl-nav [class*=owl-],
-							#{$layoutID} .owl-theme .owl-dots .owl-dot span{";
-                        $css .= "background-color: {$button['bg']};";
-                        $css .= "}";
-                    }
-                    if (!empty($button['hover_bg'])) {
-                        $css .= "#{$layoutID} .tlp-pagination-wrap .tlp-pagination > li > a:hover, 
-							#{$layoutID} .tlp-pagination-wrap .tlp-pagination > li > span:hover,
-							#{$layoutID} .owl-theme .owl-dots .owl-dot span:hover,
-							#{$layoutID} .owl-theme .owl-nav [class*=owl-]:hover,
-							#{$layoutID} .tlp-isotope-buttons.button-group button:hover{";
-                        $css .= "background-color: {$button['hover_bg']};";
-                        $css .= "}";
-                    }
-                    if (!empty($button['active_bg'])) {
-                        $css .= "#{$layoutID} .tlp-isotope-buttons.button-group button.selected,
-					#{$layoutID} .owl-theme .owl-dots .owl-dot.active span,
-					#{$layoutID} .tlp-pagination-wrap .tlp-pagination > .active > span{";
-                        $css .= "background-color: {$button['active_bg']};";
-                        $css .= "}";
-                    }
-                    if (!empty($button['text'])) {
-                        $css .= "#{$layoutID} .tlp-pagination-wrap .tlp-pagination > li > a, 
-							#{$layoutID} .tlp-pagination-wrap .tlp-pagination > li > span,
-							#{$layoutID} .tlp-isotope-buttons.button-group button,
-							#{$layoutID} .owl-theme .owl-nav [class*=owl-]{";
-                        $css .= "color: {$button['text']};";
-                        $css .= "}";
-                    }
-                    if (!empty($button['hover_text'])) {
-                        $css .= "#{$layoutID} .tlp-pagination-wrap .tlp-pagination > li > a:hover, 
-							#{$layoutID} .tlp-pagination-wrap .tlp-pagination > li > span:hover,
-							#{$layoutID} .tlp-isotope-buttons.button-group button:hover,
-							#{$layoutID} .owl-theme .owl-nav [class*=owl-]:hover{";
-                        $css .= "color: {$button['hover_text']};";
-                        $css .= "}";
-                    }
-                }
-
-                // Name
-                if (!empty($name)) {
-                    $cCss = null;
-                    $cCss .= isset($name['color']) && !empty($name['color']) ? "color:" . $name['color'] . ";" : null;
-                    $cCss .= isset($name['align']) && !empty($name['align']) ? "text-align:" . $name['align'] . ";" : null;
-                    $cCss .= isset($name['size']) && !empty($name['size']) ? "font-size:" . $name['size'] . "px;" : null;
-                    $cCss .= isset($name['weight']) && !empty($name['weight']) ? "font-weight:" . $name['weight'] . ";" : null;
-                    if ($cCss) {
-                        $css .= "#{$layoutID} .single-team-area h3,
-							#{$layoutID} .single-team-area h3 a{ {$cCss} }";
-                    }
-                    if (isset($name['hover_color']) && !empty($name['hover_color'])) {
-                        $css .= "#{$layoutID} .single-team-area h3:hover,
-							#{$layoutID} .single-team-area h3 a:hover{ color: {$name['hover_color']}; }";
-                    }
-
-                }
-                // Designation
-                if (!empty($designation)) {
-                    $cCss = null;
-                    $cCss .= isset($designation['color']) && !empty($designation['color']) ? "color:" . $designation['color'] . ";" : null;
-                    $cCss .= isset($designation['align']) && !empty($designation['align']) ? "text-align:" . $designation['align'] . ";" : null;
-                    $cCss .= isset($designation['size']) && !empty($designation['size']) ? "font-size:" . $designation['size'] . "px;" : null;
-                    $cCss .= isset($designation['weight']) && !empty($designation['weight']) ? "font-weight:" . $designation['weight'] . ";" : null;
-
-                    $css .= "#{$layoutID} .designation,
-						#{$layoutID} .designation a{ {$cCss} }";
-
-                    if (isset($designation['hover_color']) && !empty($designation['hover_color'])) {
-                        $css .= "#{$layoutID} .designation:hover,
-							#{$layoutID} .designation a:hover{ color: {$designation['hover_color']}; }";
-                    }
-                }
-
-                // Short biography
-                if (!empty($short_bio)) {
-                    $cCss = null;
-                    $cCss .= isset($short_bio['color']) && !empty($short_bio['color']) ? "color:" . $short_bio['color'] . ";" : null;
-                    $cCss .= isset($short_bio['align']) && !empty($short_bio['align']) ? "text-align:" . $short_bio['align'] . ";" : null;
-                    $cCss .= isset($short_bio['size']) && !empty($short_bio['size']) ? "font-size:" . $short_bio['size'] . "px;" : null;
-                    $cCss .= isset($short_bio['weight']) && !empty($short_bio['weight']) ? "font-weight:" . $short_bio['weight'] . ";" : null;
-                    $css .= "#{$layoutID} .short-bio p,#{$layoutID} .short-bio p a{{$cCss}}";
-                    if (isset($short_bio['hover_color']) && !empty($short_bio['hover_color'])) {
-                        $css .= "#{$layoutID} .designation:hover,
-							#{$layoutID} .designation a:hover{ color: {$short_bio['hover_color']}; }";
-                    }
-                }
-            }
-
-            if (!empty($css)) {
-                $css = "<style>{$css}</style>";
-            }
-
-
-            return $css;
-
         }
 
         /**
@@ -709,7 +565,7 @@ if (!class_exists('TPLTeamShortCode')):
                 }
                 $class = implode(' ', $class);
                 $html .= "<div class='" . esc_attr($class) . "' id='{$layoutID}' data-desktop='{$grid}'>";
-                $html .= $this->layoutStyle($layoutID, $atts, false, true);
+                $html .= $this->layoutStyle($atts, true);
                 $class = 'layout' . $atts['layout'];
                 $attr = '';
                 if ($atts['layout'] == 'carousel') {
@@ -807,6 +663,13 @@ if (!class_exists('TPLTeamShortCode')):
             return $html;
         }
 
+        private function layoutStyle($scMeta, $old = false) {
+            $scID = 0;
+            if ($css = TLPTeam()->render('sc-css', compact('scID', 'scMeta', 'old'), true)) {
+                $css = "<style>{$css}</style>";
+            }
+            return $css;
+        }
 
     }
 

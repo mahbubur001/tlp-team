@@ -13,6 +13,20 @@ if (!class_exists('TLPTeamSCMeta')):
             add_action('save_post', array($this, 'save_team_sc_meta_data'), 10, 3);
             add_action('edit_form_after_title', array($this, 'team_sc_after_title'));
             add_action('admin_init', array($this, 'tlp_team_pro_remove_all_meta_box'));
+            add_action('before_delete_post', [$this, 'before_delete_post'], 10, 2);
+        }
+
+        /**
+         * @param $post_id
+         * @param $post
+         *
+         * @return void
+         */
+        public function before_delete_post($post_id, $post) {
+            if (TLPTeam()->getScPostType() !== $post->post_type) {
+                return $post_id;
+            }
+            TLPTeam()->removeGeneratorShortCodeCss($post_id);
         }
 
         function team_sc_after_title($post) {
@@ -187,7 +201,7 @@ if (!class_exists('TLPTeamSCMeta')):
         function save_team_sc_meta_data($post_id, $post, $update) {
 
             if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
-                return;
+                return $post_id;
             }
 
             if (!TLPTeam()->verifyNonce()) {
@@ -201,6 +215,7 @@ if (!class_exists('TLPTeamSCMeta')):
             $request = $_REQUEST;
             $mates = TLPTeam()->getScTeamMetaFields();
             TLPTeam()->updateMetaFields($post_id, $mates, $request);
+            TLPTeam()->generatorShortCodeCss($post_id);
 
         }
     }

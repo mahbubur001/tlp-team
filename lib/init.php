@@ -37,7 +37,7 @@ class TLPTeam
         $this->modelsPath = $this->incPath . '/models/';
         $this->widgetsPath = $this->incPath . '/widgets/';
         $this->viewsPath = $this->incPath . '/views/';
-	    $this->templatesPath  = $this->incPath . '/templates/';
+        $this->templatesPath = $this->incPath . '/templates/';
 
         $this->assetsUrl = TLP_TEAM_PLUGIN_URL . '/assets/';
         $this->TLPLoadModel($this->modelsPath);
@@ -122,63 +122,64 @@ class TLPTeam
     }
 
 
-	/**
-	 * @param $viewName
-	 * @param array $args
-	 * @param bool $return
-	 * @return string|void
-	 */
-	function render_view($viewName, $args = array(), $return = false ) {
-		$path     = str_replace( ".", "/", $viewName );
-		$viewPath = $this->viewsPath . $path . '.php';
-		if ( ! file_exists( $viewPath ) ) {
-			return;
-		}
-		if ( $args ) {
-			extract( $args );
-		}
-		if ( $return ) {
-			ob_start();
-			include $viewPath;
+    /**
+     * @param       $viewName
+     * @param array $args
+     * @param bool  $return
+     *
+     * @return string|void
+     */
+    function render_view($viewName, $args = array(), $return = false) {
+        $path = str_replace(".", "/", $viewName);
+        $viewPath = $this->viewsPath . $path . '.php';
+        if (!file_exists($viewPath)) {
+            return;
+        }
+        if ($args) {
+            extract($args);
+        }
+        if ($return) {
+            ob_start();
+            include $viewPath;
 
-			return ob_get_clean();
-		}
-		include $viewPath;
-	}
+            return ob_get_clean();
+        }
+        include $viewPath;
+    }
 
 
-	/**
-	 * @param $viewName
-	 * @param array $args
-	 * @param bool $return
-	 *
-	 * @return string|void
-	 */
-	function render( $viewName, $args = array(), $return = false ) {
+    /**
+     * @param       $viewName
+     * @param array $args
+     * @param bool  $return
+     *
+     * @return string|void
+     */
+    function render($viewName, $args = array(), $return = false) {
 
-		$path = str_replace( ".", "/", $viewName );
-		if ( $args ) {
-			extract( $args );
-		}
-		$template = array(
-			"tlp-team/{$path}.php"
-		);
+        $path = str_replace(".", "/", $viewName);
+        if ($args) {
+            extract($args);
+        }
+        $template = array(
+            "tlp-team/{$path}.php"
+        );
 
-		if ( ! $template_file = locate_template( $template ) ) {
-			$template_file = $this->templatesPath . $viewName . '.php';
-		}
-		if ( ! file_exists( $template_file ) ) {
-			return;
-		}
-		if ( $return ) {
-			ob_start();
-			include $template_file;
+        if (!$template_file = locate_template($template)) {
+            $template_file = $this->templatesPath . $viewName . '.php';
+        }
+        if (!file_exists($template_file)) {
+            return;
+        }
+        if ($return) {
+            ob_start();
+            include $template_file;
 
-			return ob_get_clean();
-		} else {
-			include $template_file;
-		}
-	}
+            return ob_get_clean();
+        } else {
+            include $template_file;
+        }
+    }
 
 
     /**
@@ -212,6 +213,13 @@ class TLPTeam
     }
 
     private function insertDefaultData() {
+        $installed_version = get_option(TLPTeam()->options['installed_version']);
+        if ($installed_version) {
+            $cssFile = TLP_TEAM_PLUGIN_PATH . '/assets/css/sc.css';
+            if (!file_exists($cssFile) || !$oldCss = file_get_contents($cssFile)) {
+                $this->generateDynamicCss();
+            }
+        }
         update_option(TLPTeam()->options['installed_version'], TLPTeam()->options['version']);
         if (!get_option(TLPTeam()->options['settings'])) {
             update_option(TLPTeam()->options['settings'], TLPTeam()->defaultSettings);
@@ -223,6 +231,21 @@ class TLPTeam
      */
     public function getScPostType() {
         return $this->sc_post_type;
+    }
+
+    private function generateDynamicCss() {
+        $scPostIds = get_posts(array(
+            'post_type'      => $this->getScPostType(),
+            'posts_per_page' => -1,
+            'post_status'    => 'publish',
+            'fields'         => 'ids'
+        ));
+        if (is_array($scPostIds) && !empty($scPostIds)) {
+            $css = null;
+            foreach ($scPostIds as $scPostId) {
+                TLPTeam()->generatorShortCodeCss($scPostId);
+            }
+        }
     }
 
 }
