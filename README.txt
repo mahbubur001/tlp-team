@@ -4,7 +4,7 @@ Donate link:
 Tags: team, team display, team members profile, our team, team members, team members slider plugin, meet the team, team plugin, WordPress team plugin, team showcase, team member showcase, team member WordPress plugin, team members plugin
 Requires at least: 4.5
 Tested up to: 5.7
-Stable tag: 2.6.0
+Stable tag: 2.6.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -214,6 +214,9 @@ Install and Activate
 
 
 == Changelog ==
+
+= 2.6.1 =
+* Fix carousel layout issue
 
 = 2.6.0 =
 * Add image size property

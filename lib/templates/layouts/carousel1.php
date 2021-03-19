@@ -34,7 +34,7 @@ if ( $sLink ) {
 				<?php if ( $disable_detail_page_link ) {
 					echo esc_html( $title );
 				} else {
-					printf( '<a title="%1$s" href="%2$s">%1$</a>', esc_html( $title ), esc_url( $pLink ) );
+					printf( '<a title="%1$s" href="%2$s">%1$s</a>', esc_html( $title ), esc_url( $pLink ) );
 				} ?>
             </h3>
 			<?php echo $designation_html ?>
