@@ -28,7 +28,7 @@ if ( $sLink ) {
 ?>
 <div class="team-member tlp-equal-height <?php echo esc_attr( $grid ) ?>">
     <div class="single-team-area">
-		<?php echo wp_kses_post( $image ); ?>
+		<?php printf("%s", $image); ?>
         <div class="tlp-team-content">
             <h3 class="name">
 				<?php if ( $disable_detail_page_link ) {

@@ -7,7 +7,7 @@
  * @var bool    $preview
  */
 $css = null;
-$selector = '.rt-team-container-' . $scID;
+$selector = '.tlp-team.rt-team-container-' . $scID;
 
 if (!empty($old)) {
     $name = isset($scMeta['name-color']) && !empty($scMeta['name-color']) ? $scMeta['name-color'] : null;

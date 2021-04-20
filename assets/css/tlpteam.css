@@ -525,6 +525,7 @@ body .tlp-team .team-member a {
 }
 
 .tlp-team .carousel1 h3.tlp-title,
+.tlp-team .carousel1 h3.name,
 .tlp-team .layout-carousel h3.tlp-title {
     margin: 15px 0 10px;
 }
