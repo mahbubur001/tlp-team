@@ -427,12 +427,12 @@ msgstr ""
 msgid "Styling"
 msgstr ""
 
-#: ../lib/classes/TPLsettings.php:42
-msgid "Session Error!!"
-msgstr ""
-
 #: ../lib/classes/TPLsettings.php:40
 msgid "Settings successfully updated"
+msgstr ""
+
+#: ../lib/classes/TPLsettings.php:42
+msgid "Session Error!!"
 msgstr ""
 
 #: ../lib/classes/TPLsettings.php:68, ../lib/views/settings.php:3
@@ -443,12 +443,12 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: ../lib/classes/TPLTeamShortCode.php:257
-msgid "No shortCode found"
-msgstr ""
-
 #: ../lib/classes/TPLTeamShortCode.php:255
 msgid "Session Error !!"
+msgstr ""
+
+#: ../lib/classes/TPLTeamShortCode.php:257
+msgid "No shortCode found"
 msgstr ""
 
 #: ../lib/classes/TPLTeamShortCode.php:660
